@@ -1,0 +1,61 @@
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="recklessMFO">
+    <title>FilterTester</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <span class="navbar-brand">FilterTester</span>
+        <a class="nav-link" aria-current="page" href="/admin">Admin</a>
+      </div>
+    </nav>
+    <br>
+    <form action='' method='get'>
+    <div class='container'>
+      <div class='row'>
+          <div class='col-md-6'>
+            <div class="mb-3">
+              <label for="client" class="form-label">Client</label>
+              <select style='width: 100%'name='client' id='client' class="form-select" aria-label="client">
+                <option value='0' selected>Select an option...</option>
+                <% @clients.each do |c| %>
+                  <option value="<%=c.id%>"><%=c.name%></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+          <div class='col-md-6'>
+            <div class="mb-3">
+              <label for="filter" class="form-label">Filter</label>
+              <input style='width: 100%' name='filter' type="text" class="form-control" id="filter" placeholder="Insert the filter's product code...">
+            </div>
+          </div>
+      </div>
+      <br>
+      <div class='row'>
+        <div class='col-md-12'>
+          <input type="submit" style='width: 100%' class="btn btn-info" id="submit" value='Go!'/>
+        </div>
+      </div>
+      <% if @filter %>
+        <br><br>
+        <div class='row'>
+          <div class='col-md-12'>
+            <div class='ar-container'>
+              <model-viewer style='width: 270px; margin: auto;' src="<%=@filter.glb_url %>" ios-src='<%= @filter.usdz_url %>' ar ar-modes="webxr scene-viewer" auto-rotate camera-controls></model-viewer>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    </form>
+  </body>
+</html>
