@@ -6,8 +6,11 @@ class HomeController < ApplicationController
 
     if client_id && product_code
       selectedFilter = Filter.find_by(product_code: product_code)
-      if selectedFilter.client.id == client_id
+      
+      if selectedFilter && selectedFilter.client.id == client_id
         @filter = selectedFilter
+      else 
+        redirect_to(request.referrer, flash: {error: 'Filter not found.'});
       end
     end
     @clients = Client.all
