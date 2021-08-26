@@ -8,9 +8,11 @@ class HomeController < ApplicationController
       selectedFilter = Filter.find_by(product_code: product_code)
       
       if selectedFilter && selectedFilter.client.id == client_id
+        flash.notice = 'Filter found!'
         @filter = selectedFilter
+
       else 
-        redirect_to(request.referrer, flash: {error: 'Filter not found.'});
+        redirect_to(root_url, flash: {error: 'Filter not found.'});
       end
     end
     @clients = Client.all

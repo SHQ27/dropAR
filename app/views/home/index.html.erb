@@ -18,7 +18,8 @@
       </div>
     </nav>
     <% flash.each do |type, msg| %>
-      <div class='alert alert-danger text-center' role='alert'>
+      
+      <div class='alert alert-<% if type == 'notice' %>success<% else%>danger<% end %> text-center' role='alert'>
       <%= msg %>
       </div>
     <% end %>
