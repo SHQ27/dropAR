@@ -4,7 +4,7 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-  config.hosts << "http://dropar.ar"
+  config.hosts << "dropar.ar"
   config.active_storage.routes_prefix = '/data'
 
   # Eager load code on boot. This eager loads most of Rails and
@@ -113,6 +113,6 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   #
-  config.default_url_options = { host: "147.182.232.68" }
-  Rails.application.routes.default_url_options[:host] = '147.182.232.68'
+  config.default_url_options = { host: "dropar.ar" }
+  Rails.application.routes.default_url_options[:host] = 'dropar.ar'
 end
