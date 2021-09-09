@@ -4,7 +4,7 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-  config.hosts << "147.182.232.68"
+  config.hosts << "http://dropar.ar"
   config.active_storage.routes_prefix = '/data'
 
   # Eager load code on boot. This eager loads most of Rails and
