@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 
   def index
+    response.headers.delete "X-Frame-Options"
     client_id = params[:client].to_i
     product_code = params[:filter]
 
