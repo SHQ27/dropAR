@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="recklessMFO">
-    <title>FilterTester</title>
+    <title>DropAr Demo</title>
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -13,8 +13,8 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <span class="navbar-brand">FilterTester</span>
-        <a class="nav-link" aria-current="page" href="/admin">Admin</a>
+        <span class="navbar-brand"><%= image_tag "logo-minimal.png", :style => "height: 50px; margin: 5px"%></span>
+        <a class="nav-link" aria-current="page" style='color: #FD1365' href="/admin">Login</a>
       </div>
     </nav>
     <% flash.each do |type, msg| %>
@@ -47,7 +47,7 @@
       <br>
       <div class='row'>
         <div class='col-md-12'>
-          <input type="submit" style='width: 100%' class="btn btn-info" id="submit" value='Go!'/>
+          <input type="submit" style='width: 100%; background-image: linear-gradient(to right top, #870fa6, #a8009c, #c20091, #d80085, #ea0078, #f20b6e, #f91a64, #ff2859, #ff3550, #ff4147, #ff4c3d, #ff5734);' class="btn" style=''id="submit" value='Go!'/>
         </div>
       </div>
       <% if @filter %>
