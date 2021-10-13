@@ -9,10 +9,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   </head>
 
-  <body>
+  <body <% if @isAR %> style='background-image: linear-gradient(to right top, #870fa6, #a8009c, #c20091, #d80085, #ea0078, #f20b6e, #f91a64, #ff2859, #ff3550, #ff4147, #ff4c3d, #ff5734);' <% end %>>
     <% if @filter %>
-      <div class='ar-container'>
-      <model-viewer id='modelViewer' style='width: 100vh; height: 100vh; margin: auto;' src="<%=@filter.glb_url %>" ios-src='<%= @filter.usdz_url %>' ar ar-modes="webxr scene-viewer" auto-rotate camera-controls></model-viewer>
+      <div class='ar-container' style='height: 100vh; width: 100vh;'>
+        <model-viewer id='modelViewer' <% if @isAR%> reveal='manual' <% end %> style='width: 100vh; height: 100vh; margin: auto; <% if @isAR %> display: none;<% end %>' src="<%=@filter.glb_url %>" ios-src='<%= @filter.usdz_url %>' ar ar-modes="webxr scene-viewer" auto-rotate camera-controls></model-viewer>
       </div>
     <% end %>
 
