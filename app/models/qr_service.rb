@@ -17,7 +17,13 @@ class QrService
 		)
 
 		file_name = "#{fileId}-qrcode.png"
-		file_path = "#{Rails.root.to_s}/public/uploads/#{file_name}"
+        root_path = "#{Rails.root.to_s}/public/uploads/"
+		file_path = "#{root_path}#{file_name}"
+
+		if not File.exists?(root_path)
+          FileUtils.mkdir_p root_path
+        end
+
 		if not File.exists?(file_path)
 			IO.binwrite(file_path, png.to_s)
 		end
