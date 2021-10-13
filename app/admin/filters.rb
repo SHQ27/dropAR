@@ -4,6 +4,10 @@ ActiveAdmin.register Filter do
   # Parámetros permitidos para el form
   permit_params :name, :description, :product_code, :client_id, :usdz_attachment, :glb_attachment
 
+  sidebar "QR", only: :show do
+    image_tag QrService.urlToQR(filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true'), resource.product_code), style: 'height:auto;width:100%;'
+  end
+
   index do
     column :name
     column :description
