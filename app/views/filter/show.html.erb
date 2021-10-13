@@ -18,7 +18,10 @@
 
     <% if @isAR%>
     <script>
-      $('#modelViewer').activateAR();
+      var modelViewer = document.getElementById('modelViewer');
+      modelViewer.addEventListener('load', function () { 
+        modelViewer.activateAR(); 
+      });    
     </script>
     <% end %>
   </body>
