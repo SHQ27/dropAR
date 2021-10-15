@@ -17,7 +17,8 @@
       </div>
 
       <% if @isAR%>
-        <div id-'droparLoading' style='height: 100vh; width: 100vw; position: absolute; top: 0; z-index: 1000;transform: translate3d(0, 0, 1000); background-image: linear-gradient(to right top, #870fa6, #a8009c, #c20091, #d80085, #ea0078, #f20b6e, #f91a64, #ff2859, #ff3550, #ff4147, #ff4c3d, #ff5734);'>
+        <div id-'droparLoading' style='height: 100vh; width: 100vw; position: absolute; top: 0; z-index: 1000;transform: translate3d(0, 0, 1000); background-color: black; display: flex; justify-content: center;'>
+          <%= image_tag("loading-logo.gif", :style => "height: 350px; margin-top: 20%;") %>
         </div>
         <script>
           var modelViewer = document.getElementById('modelViewer');
