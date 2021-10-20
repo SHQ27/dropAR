@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root :controller => 'home', :action => :index 
 
   get '/filters', to: "filter#show"
+  get '/tester', to: "filter#tester"
 
   namespace 'api' do
     namespace 'v1' do
