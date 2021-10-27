@@ -2,7 +2,7 @@ ActiveAdmin.register Filter do
   menu priority: 1
 
   # Parámetros permitidos para el form
-  permit_params :name, :description, :product_code, :client_id, :usdz_attachment, :glb_attachment
+  permit_params :name, :description, :product_code, :client_id, :usdz_attachment, :glb_attachment, :vertical
 
   sidebar "QR", only: :show do
     image_tag QrService.urlToQR(filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true'), resource.product_code), style: 'height:auto;width:100%;'
@@ -13,6 +13,7 @@ ActiveAdmin.register Filter do
     column :description
     column :product_code
     column :client
+    column :vertical
     column :created_at
     column :updated_at
     actions
@@ -24,6 +25,7 @@ ActiveAdmin.register Filter do
       row :description
       row :product_code
       row :client
+      row :vertical
       render 'partials/model-viewer', {filter: filter}
     end
   end
@@ -36,6 +38,7 @@ ActiveAdmin.register Filter do
       f.input :client_id, as: :select, collection: Client.all, label: 'Cliente'
       f.input :usdz_attachment, as: :file, label: 'USDZ'
       f.input :glb_attachment, as: :file, label: 'GLB'
+      f.input :vertical, as: :boolean
     end
     f.actions
   end
