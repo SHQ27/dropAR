@@ -9,7 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   </head>
 
-  <body <% if @isAR %>  <% end %>>
+  <body>
     <% if @filter %>
 
       <div class='ar-container' style='height: 100vh; width: 100vw;<% if @isAR %>transform: translate3d(0, 0, 0); z-index: 0<% end %>'>
@@ -21,9 +21,15 @@
           <%= image_tag("loading-logo.gif", :style => "height: 350px; margin-top: 20%;") %>
         </div>
         <script>
-          $(document).ready(function() {
-            $('#default-ar-button').click();
-          });
+          var checkExist = setInterval(function() {
+            shadow = $('#modelViewer')[0].shadowRoot;
+            arButton = $(shadow).find('#default-ar-button');
+                      console.log(arButton);
+            if (arButton.length) {
+              clearInterval(checkExist);
+              arButton[0].click();
+            }
+          }, 100);
 
 //          var modelViewer = document.getElementById('modelViewer');
   //        modelViewer.addEventListener('load', function () { 
