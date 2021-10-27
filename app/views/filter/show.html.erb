@@ -21,14 +21,16 @@
           <%= image_tag("loading-logo.gif", :style => "height: 350px; margin-top: 20%;") %>
         </div>
         <script>
+          var counter = 0;
           var checkExist = setInterval(function() {
+            counter++;
             shadow = $('#modelViewer')[0].shadowRoot;
             arButton = $(shadow).find('#default-ar-button');
-                      console.log(arButton);
-            if (arButton.length) {
-              clearInterval(checkExist);
-              arButton[0].click();
-            }
+              console.log(arButton);
+              if (arButton.length and counter >= 5) {
+                clearInterval(checkExist);
+                arButton[0].click();
+              }
           }, 100);
 
 //          var modelViewer = document.getElementById('modelViewer');
