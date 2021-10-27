@@ -21,10 +21,14 @@
           <%= image_tag("loading-logo.gif", :style => "height: 350px; margin-top: 20%;") %>
         </div>
         <script>
-          var modelViewer = document.getElementById('modelViewer');
-         modelViewer.addEventListener('load', function () { 
-            modelViewer.activateAR(); 
-         });    
+          $(document).ready(function() {
+            $('#default-ar-button').click();
+          });
+
+//          var modelViewer = document.getElementById('modelViewer');
+  //        modelViewer.addEventListener('load', function () { 
+    //        modelViewer.activateAR(); 
+      //    });    
         </script>
       <% end %>
 
