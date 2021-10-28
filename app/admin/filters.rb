@@ -26,6 +26,9 @@ ActiveAdmin.register Filter do
       row :product_code
       row :client
       row :vertical
+      row :url do
+		link_to Rails.application.routes.url_helpers.root_url.delete_suffix('/') + filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true')
+      end
       render 'partials/model-viewer', {filter: filter}
     end
   end
