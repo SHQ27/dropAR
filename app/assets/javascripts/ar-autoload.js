@@ -6,7 +6,7 @@ $(document).ready(function() {
     window.onfocus = function() {
         if(blurred && playStoreAccessed) {
             window.location.reload()
-        } else if (blurred && window.history.length > 0) {
+        } else if (blurred && window.history.length > 1) {
             window.history.back();
         }};
 
