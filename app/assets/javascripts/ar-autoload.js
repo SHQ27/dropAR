@@ -5,8 +5,10 @@ $(document).ready(function() {
     window.onblur = function() { blurred = true; };
     window.onfocus = function() {
         if(blurred && playStoreAccessed) {
+            clearInterval(checkExist);
             window.location.reload()
         } else if (blurred && window.history.length > 3) {
+            clearInterval(checkExist);
             window.history.back();
         } else {
             clearInterval(checkExist);
@@ -19,13 +21,11 @@ $(document).ready(function() {
         ++counter;
         shadow = $('#modelViewer')[0].shadowRoot;
         arButton = $(shadow).find('#default-ar-button');
-        canActivateAR = $('#modelViewer')[0].canActivateAR;
-        if (arButton.length && counter >= 5 && canActivateAR) {
-            clearInterval(checkExist);
+        if (arButton.length && counter >= 5) {
             arButton[0].click();
         }
 
-        if (counter >= 30 && !canActivateAR) {
+        if (counter >= 30) {
             clearInterval(checkExist);
             checkCompatibility();
         }
