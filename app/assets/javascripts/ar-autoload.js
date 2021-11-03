@@ -3,7 +3,12 @@ $(document).ready(function() {
     var playStoreAccessed = false;
     var blurred = false;
     window.onblur = function() { blurred = true; };
-    window.onfocus = function() {if(blurred && playStoreAccessed) {window.history.back()}};
+    window.onfocus = function() {
+        if(blurred && playStoreAccessed) {
+            window.location.reload()
+        } else if (blurred) {
+            window.history.back();
+        }};
 
     //Autoload
     var counter = 0;
