@@ -22,18 +22,8 @@
           <%= image_tag("loading-logo.gif", :style => "width: 250px; margin-top: -20%;") %>
           </div>
         </div>
-        <script>
-          var counter = 0;
-          var checkExist = setInterval(function() {
-            ++counter;
-            shadow = $('#modelViewer')[0].shadowRoot;
-            arButton = $(shadow).find('#default-ar-button');
-            if (arButton.length && counter >= 5) {
-                clearInterval(checkExist);
-                arButton[0].click();
-            }
-          }, 100);
-        </script>
+
+        <%= javascript_include_tag "ar-autoload" %>
       <% end %>
 
     <% end %>
