@@ -10,19 +10,17 @@ $(document).ready(function() {
         ++counter;
         shadow = $('#modelViewer')[0].shadowRoot;
         arButton = $(shadow).find('#default-ar-button');
-        if (arButton.length && counter >= 5) {
+        canActivateAR = $('#modelViewer')[0].canActivateAR;
+        if (arButton.length && counter >= 5 && canActivateAR) {
             arButton[0].click();
         }
 
-        if (counter >= 60) {
+        if (counter >= 60 && !canActivateAR) {
+            clearInterval(checkExist);
             checkCompatibility();
-
         }
-    }, 100);
 
-    window.onbeforeunload = function(){
-        clearInterval(checkExist);
-    };
+    }, 100);
 
     function checkCompatibility() {
         iOSVersion = getIOSVersion();    
