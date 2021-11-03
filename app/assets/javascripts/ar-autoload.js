@@ -10,7 +10,10 @@ $(document).ready(function() {
         } else if (blurred && window.history.length > 1) {
             alert(1);
             window.history.back();
-        }};
+        } else {
+            clearInterval(checkExist);
+        }
+    };
 
     //Autoload
     var counter = 0;
@@ -20,11 +23,11 @@ $(document).ready(function() {
         arButton = $(shadow).find('#default-ar-button');
         canActivateAR = $('#modelViewer')[0].canActivateAR;
         if (arButton.length && counter >= 5 && canActivateAR) {
-            arButton[0].click();
             clearInterval(checkExist);
+            arButton[0].click();
         }
 
-        if (counter >= 60 && !canActivateAR) {
+        if (counter >= 30 && !canActivateAR) {
             clearInterval(checkExist);
             checkCompatibility();
         }
