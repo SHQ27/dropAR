@@ -5,10 +5,8 @@ $(document).ready(function() {
     window.onblur = function() { blurred = true; };
     window.onfocus = function() {
         if(blurred && playStoreAccessed) {
-            alert(0);
             window.location.reload()
-        } else if (blurred && window.history.length > 1) {
-            alert(window.history.length);
+        } else if (blurred && window.history.length > 3) {
             window.history.back();
         } else {
             clearInterval(checkExist);
