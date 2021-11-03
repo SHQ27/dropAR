@@ -51,6 +51,7 @@ $(document).ready(function() {
             var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
             versionArr = [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
             version = versionArr[0];
+            alert(version);
         }
         return version;
     }
