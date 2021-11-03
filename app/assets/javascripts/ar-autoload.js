@@ -27,6 +27,7 @@ $(document).ready(function() {
 
         if (counter >= 30) {
             clearInterval(checkExist);
+            alert(1);
             checkCompatibility();
         }
 
@@ -40,6 +41,7 @@ $(document).ready(function() {
         let iOS = iOSVersion ? true : false;
 
         if (!iOS) {
+            alert(2);
             if (confirm('Para acceder al contenido debe descargar un componente de Google Play ¿Desea proceder?')) {
                 playStoreAccessed = true;
                 window.open('https://play.google.com/store/apps/details?id=com.google.ar.core&hl=es_AR&gl=US', '_blank').focus();
