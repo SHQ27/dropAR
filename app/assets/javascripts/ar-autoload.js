@@ -8,7 +8,7 @@ $(document).ready(function() {
             alert(0);
             window.location.reload()
         } else if (blurred && window.history.length > 1) {
-            alert(1);
+            alert(window.history.length);
             window.history.back();
         } else {
             clearInterval(checkExist);
