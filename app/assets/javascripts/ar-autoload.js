@@ -10,7 +10,6 @@ $(document).ready(function() {
         ++counter;
         shadow = $('#modelViewer')[0].shadowRoot;
         arButton = $(shadow).find('#default-ar-button');
-        console.log(counter);
         if (arButton.length && counter >= 5) {
             arButton[0].click();
         }
@@ -26,12 +25,11 @@ $(document).ready(function() {
     };
 
     function checkCompatibility() {
-        let iOS = false;
         iOSVersion = getIOSVersion();    
         if (iOSVersion && iOSVersion < 13) {
-            iOS = true;
             alert('La versión de tu sistema operativo debe ser 13 o superior para acceder al contenido');
         }
+        let iOS = iOSVersion ? true : false;
 
         if (!iOS) {
             if (confirm('Para acceder al contenido debe descargar un componente de Google Play ¿Desea proceder?')) {
