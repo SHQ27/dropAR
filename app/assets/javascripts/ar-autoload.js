@@ -13,6 +13,7 @@ $(document).ready(function() {
         canActivateAR = $('#modelViewer')[0].canActivateAR;
         if (arButton.length && counter >= 5 && canActivateAR) {
             arButton[0].click();
+            clearInterval(checkExist);
         }
 
         if (counter >= 60 && !canActivateAR) {
