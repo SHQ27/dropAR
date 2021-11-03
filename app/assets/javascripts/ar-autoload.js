@@ -1,8 +1,9 @@
 $(document).ready(function() {
     //Reload after focus
-//    var blurred = false;
-//    window.onblur = function() { blurred = true; };
-//    window.onfocus = function() { blurred && (location.reload()); };
+    var playStoreAccessed = false;
+    var blurred = false;
+    window.onblur = function() { blurred = true; };
+    window.onfocus = function() {if(blurred && playStoreAccessed) {window.history.back()}};
 
     //Autoload
     var counter = 0;
@@ -32,6 +33,7 @@ $(document).ready(function() {
 
         if (!iOS) {
             if (confirm('Para acceder al contenido debe descargar un componente de Google Play ¿Desea proceder?')) {
+                playStoreAccessed = true;
                 window.open('https://play.google.com/store/apps/details?id=com.google.ar.core&hl=es_AR&gl=US', '_blank').focus();
                 return true;
             } else {
@@ -45,10 +47,9 @@ $(document).ready(function() {
         let version = false;
         if (/iP(hone|od|ad)/.test(navigator.platform)) {
             // supports iOS 2.0 and later: <http://bit.ly/TJjs1V>
-            var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+            let v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
             versionArr = [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
             version = versionArr[0];
-            alert(version);
         }
         return version;
     }
