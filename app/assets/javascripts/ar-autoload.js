@@ -1,8 +1,8 @@
 $(document).ready(function() {
     //Reload after focus
-    var blurred = false;
-    window.onblur = function() { blurred = true; };
-    window.onfocus = function() { blurred && (location.reload()); };
+//    var blurred = false;
+//    window.onblur = function() { blurred = true; };
+//    window.onfocus = function() { blurred && (location.reload()); };
 
     //Autoload
     var counter = 0;
