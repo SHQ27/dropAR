@@ -13,6 +13,7 @@
     <!-- Fontawesome -->
     <link href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" rel="stylesheet">
 
+
     <!-- Css Main Files -->
     <%= stylesheet_link_tag 'site_variables.css' %>
     <%= stylesheet_link_tag 'site_global-styles.css' %>
@@ -20,6 +21,7 @@
     <%= stylesheet_link_tag 'site_nav.css' %>
     <%= stylesheet_link_tag 'site_footer.css' %>
     <%= stylesheet_link_tag 'site.css' %>
+    <%= stylesheet_link_tag 'w3-modal.css' %>
 
     <title>DropAr</title>
     <!-- Fav Icon -->
@@ -130,7 +132,7 @@
     </section>
 
     <!-- Video Section -->
-    <section class="video" id="video">
+<!--    <section class="video" id="video">
 
       <%= image_tag 'site-shape-1.png', :class => 'shape-1'%>
         <div class="container">
@@ -145,21 +147,38 @@
             </div>
         </div>
     </section>
-
+-->
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-left">
-                <h2>Que es la Realidad Aumentada?</h2>
+                <%= image_tag 'site-shape-1.png', :class => 'shape-1'%>
+                <h2>Titulo</h2>
                 <span class="divider"></span>
 
                 <p>
-                    La realidad aumentada (RA) es el término que se usa para definir una visión a través de un dispositivo tecnológico, directa o indirecta, de un entorno físico del mundo real, cuyos elementos se combinan con elementos virtuales para la creación de una realidad mixta en tiempo real. <br><br> Consiste en un conjunto de dispositivos que añaden información virtual a la información física ya existente, es decir, añadir una parte sintética virtual a lo real.
+                    La realidad aumentada (RA) es el término que se usa para definir una visión a través de un dispositivo tecnológico, directa o indirecta, de un entorno físico del mundo real, cuyos elementos se combinan con elementos virtuales para la creación de una realidad mixta en tiempo real.
                 </p>
+                <!-- Button Ver en tu espacio y modal -->
+                <button class='dropButton' data-modal='aboutQRModal'>Ver en tu espacio</button>
+                <div id="aboutQRModal" class="w3-modal">
+                  <div class="w3-modal-content">
+                    <div class="w3-container">
+                      <span onclick="document.getElementById('aboutQRModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                      <div class='modalContent' style='padding-top: 50px; padding-bottom: 50px; text-align: center;'>
+                        <p>Escanea el siguiente código para ver el modelo en tu espacio:</p>
+                        <img src='<%= @escritorioQR %>' style='width: 35%;'>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Button END -->
             </div>
 
             <div class="about-right">
-                <%= image_tag 'site-about-img.webp', :class => 'about-img'%>
+
+                <div id='about-model' style='height: 100%;'></div>
                 <%= image_tag 'site-shape-1.png', :class => 'shape-4'%>
             </div>
         </div>
@@ -356,6 +375,12 @@
 
     <%= javascript_include_tag "jquery.min.js" %>
     <%= javascript_include_tag "site.js" %>
+    <%= javascript_include_tag 'dropar_lib' %>
+    <%= javascript_include_tag 'view-button' %>
+
+    <script>
+      var aboutModel = new DropAr('about-model', 'TESTCLI', 'escritorio');
+    </script>
 
 </body>
 </html>
