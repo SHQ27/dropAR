@@ -67,3 +67,6 @@ gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 
 #QR
 gem 'rqrcode', '~> 2.0'
+
+#Contact form
+gem 'mail_form'

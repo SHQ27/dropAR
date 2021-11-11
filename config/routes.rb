@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/filters', to: "filter#show"
   get '/tester', to: "filter#tester"
+  post '/send_mail', to: "home#send_mail"
 
   namespace 'api' do
     namespace 'v1' do

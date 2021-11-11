@@ -16,6 +16,14 @@
     transform: scale(0.95);
 }
 
+.flashMsg {
+    width: 100%;
+    text-align: center;
+    height: 60px;
+    background-color: #8CEDC3;
+    color: #024f1b;
+    padding-top: 17px;
+}
 
 /* Hero Section */
 .hero {
@@ -507,6 +515,29 @@
 
 .contact .container .contact-box button:hover {
     transform: scale(0.95);
+}
+
+.contact .container form {
+    width: 80%;
+}
+
+.contact .container form .input-container{
+    width: 50%;
+    float: left;
+    padding: 10px;
+}
+
+.contact .container form .input-container input{
+    width: 100%;
+}
+
+
+.contact .container form .message-container {
+    width: 100%;
+    padding: 10px;
+}
+.contact .container form .message-container textarea {
+    width: 100%;
 }
 
 /* Responsive */

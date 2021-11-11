@@ -28,6 +28,11 @@
 </head>
 <body>
 
+    <% flash.each do |type, msg| %>
+      <div class='flashMsg'>
+        <span><%= msg %></span>
+      </div>
+    <% end %>
     <!-- Navigation Bar -->
     <nav>
         <div class="container">
@@ -303,8 +308,19 @@
                 <h2>Contact Form</h2>
                 <span class="divider"></span>
                 <p>La realidad aumentada (RA) es el término que se usa para definir una visión a través de un dispositivo tecnológico, directa o indirecta, de un entorno físico del mundo real, cuyos elementos se combinan con elementos virtuales</p>
-
-                <button>Submit your application</button>
+                <form method='post' action='/send_mail' id='mailSend'>
+                  <div class='input-container'>
+                    <input type='text' name='name' placeholder='Nombre' required>
+                  </div>
+                  <div class='input-container'>
+                    <input type='text' name='email' placeholder='Email' required>
+                  </div>
+                  <div class='message-container'>
+                    <textarea rows='10' name='message' placeholder='Ingresá tu consulta y nuestro equipo se contactará con vos a la brevedad.' required/></textarea>
+                  </div>
+                  <input type='submit' style='display:none;' id='mailSendSubmit'/>
+                </form>
+                <button onclick="$('#mailSendSubmit').click();">Enviar</button>
             </div>
         </div>
     </section>
