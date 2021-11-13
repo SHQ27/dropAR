@@ -10,7 +10,7 @@ class HomeController < ApplicationController
     message = params[:message]
 
     c = ContactForm.new(name: name, email: email, message: message) 
-    c.deliver_now
+    c.deliver
     redirect_to root_path, notice: "Su consulta ha sido enviada exitosamente!"
   end
 end
