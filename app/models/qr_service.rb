@@ -1,7 +1,10 @@
 class QrService
-	def self.urlToQR(url, fileId)
-		fullUrl = Rails.application.routes.url_helpers.root_url.delete_suffix('/') + url
-		qrcode = RQRCode::QRCode.new(fullUrl)
+	def self.urlToQR(url, fileId, callbackURL=nil)
+		fullURL = Rails.application.routes.url_helpers.root_url.delete_suffix('/') + url
+        if callbackURL
+          fullURL += '&callback="#{callbackURL}"'
+        end
+		qrcode = RQRCode::QRCode.new(fullURL)
 
 		png = qrcode.as_png(
 			bit_depth: 1,
@@ -24,9 +27,9 @@ class QrService
           FileUtils.mkdir_p root_path
         end
 
-		if not File.exists?(file_path)
-			IO.binwrite(file_path, png.to_s)
-		end
+#		if not File.exists?(file_path)
+#			IO.binwrite(file_path, png.to_s)
+#		end
 
 		return_path = '/uploads/' + file_name
 		return_path

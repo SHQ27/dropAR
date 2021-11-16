@@ -2,7 +2,7 @@ ActiveAdmin.register Filter do
   menu priority: 1
 
   # Parámetros permitidos para el form
-  permit_params :name, :description, :product_code, :client_id, :usdz_attachment, :glb_attachment, :vertical
+  permit_params :name, :description, :product_code, :client_id, :usdz_attachment, :glb_attachment, :vertical, :callback_url
 
   sidebar "QR", only: :show do
     image_tag QrService.urlToQR(filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true'), resource.product_code, resource.callback_url), style: 'height:auto;width:100%;'
@@ -27,7 +27,8 @@ ActiveAdmin.register Filter do
       row :client
       row :vertical
       row :url do
-	      Rails.application.routes.url_helpers.root_url.delete_suffix('/') + filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true')
+        Rails.application.routes.url_helpers.root_url.delete_suffix('/') + filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true') + '&callback="' + resource.callback_url + '"'
+
       end
       render 'partials/model-viewer', {filter: filter}
     end

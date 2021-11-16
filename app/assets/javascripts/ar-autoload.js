@@ -4,14 +4,21 @@ $(document).ready(function() {
     var blurred = false;
     window.onblur = function() { blurred = true; };
     window.onfocus = function() {
-        if(blurred && playStoreAccessed) {
-            clearInterval(checkExist);
-            window.location.reload()
-        } else if (blurred && window.history.length > 3) {
-            clearInterval(checkExist);
-            window.history.back();
+        let currentURL = window.location.href;
+        var url = new URL(currentURL);
+        var callback = url.searchParams.get("callback_url");
+
+        if (blurred & callback && clicked && !playStoreAccessed) {
+            window.location.href = callbackURL;         
         } else {
-            clearInterval(checkExist);
+            if(blurred && playStoreAccessed) {
+                window.location.reload()
+            } else if (blurred && window.history.length > 3) {
+                clearInterval(checkExist);
+                window.history.back();
+            } else {
+                clearInterval(checkExist);
+            }
         }
     };
 
@@ -22,6 +29,7 @@ $(document).ready(function() {
         shadow = $('#modelViewer')[0].shadowRoot;
         arButton = $(shadow).find('#default-ar-button');
         if (arButton.length && counter >= 5) {
+            clicked = true;
             arButton[0].click();
         }
 
