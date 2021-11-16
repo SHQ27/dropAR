@@ -5,16 +5,16 @@ $(document).ready(function() {
     window.onblur = function() { blurred = true; };
     window.onfocus = function() {
         let currentURL = window.location.href;
-        var url = new URL(currentURL);
-        var callback = url.searchParams.get("callback");
+        let currentParams = window.location.search;
+        var hasCallback = searchParams.has('callback');
 
         alert(0);
         alert(blurred);
         alert(url);
         alert(clicked);
         alert(!playStoreAccessed);
-        if (blurred & callback && clicked && !playStoreAccessed) {
-            alert(1);
+        if (blurred & hasCallback && clicked && !playStoreAccessed) {
+            var callback = searchParams.get("callback");
             window.location.replace(callbackURL); 
         } else {
             alert(2);
