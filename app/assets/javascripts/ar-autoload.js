@@ -9,6 +9,10 @@ $(document).ready(function() {
         var callback = url.searchParams.get("callback");
 
         alert(0);
+        alert(blurred);
+        alert(callback);
+        alert(clicked);
+        alert(!playStoreAccessed);
         if (blurred & callback && clicked && !playStoreAccessed) {
             alert(1);
             window.location.replace(callbackURL); 
