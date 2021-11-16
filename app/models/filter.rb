@@ -8,6 +8,9 @@ class Filter < ApplicationRecord
     url = ""
     if usdz_attachment.attached?
        url = Rails.application.routes.url_helpers.url_for(usdz_attachment)
+       uri = URI.parse(url)
+       uri.scheme = "https"
+       url = uri.to_s
     end
     url
   end
@@ -16,6 +19,9 @@ class Filter < ApplicationRecord
     url = ""
     if glb_attachment.attached?
        url = Rails.application.routes.url_helpers.url_for(glb_attachment)
+       uri = URI.parse(url)
+       uri.scheme = "https"
+       url = uri.to_s
     end
     url
   end
