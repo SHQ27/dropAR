@@ -5,7 +5,7 @@ ActiveAdmin.register Filter do
   permit_params :name, :description, :product_code, :client_id, :usdz_attachment, :glb_attachment, :vertical
 
   sidebar "QR", only: :show do
-    image_tag QrService.urlToQR(filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true'), resource.product_code), style: 'height:auto;width:100%;'
+    image_tag QrService.urlToQR(filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true'), resource.product_code, resource.callback_url), style: 'height:auto;width:100%;'
   end
 
   index do
@@ -38,6 +38,7 @@ ActiveAdmin.register Filter do
       f.input :name
       f.input :description
       f.input :product_code
+      f.input :callback_url
       f.input :client_id, as: :select, collection: Client.all, label: 'Cliente'
       f.input :usdz_attachment, as: :file, label: 'USDZ'
       f.input :glb_attachment, as: :file, label: 'GLB'
