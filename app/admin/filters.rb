@@ -24,11 +24,15 @@ ActiveAdmin.register Filter do
       row :name
       row :description
       row :product_code
+      row :callback_url
       row :client
       row :vertical
       row :url do
-        Rails.application.routes.url_helpers.root_url.delete_suffix('/') + filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true') + '&callback="' + resource.callback_url + '"'
-
+        if not resource.callback_url.empty?
+          Rails.application.routes.url_helpers.root_url.delete_suffix('/') + filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true') + '&callback="' + resource.callback_url + '"'
+        else 
+          Rails.application.routes.url_helpers.root_url.delete_suffix('/') + filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true')
+        end
       end
       render 'partials/model-viewer', {filter: filter}
     end
