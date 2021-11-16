@@ -6,6 +6,7 @@ $(document).ready(function() {
     window.onfocus = function() {
         let currentURL = window.location.href;
         let currentParams = window.location.search;
+        var searchParams = new URLSearchParams(currentParams);
         var hasCallback = searchParams.has('callback');
 
         alert(0);
