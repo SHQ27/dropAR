@@ -10,7 +10,7 @@ $(document).ready(function() {
 
         alert(0);
         alert(blurred);
-        alert(callback);
+        alert(url);
         alert(clicked);
         alert(!playStoreAccessed);
         if (blurred & callback && clicked && !playStoreAccessed) {
