@@ -6,7 +6,7 @@ $(document).ready(function() {
     window.onfocus = function() {
         let currentURL = window.location.href;
         var url = new URL(currentURL);
-        var callback = url.searchParams.get("callback_url");
+        var callback = url.searchParams.get("callback");
 
         if (blurred & callback && clicked && !playStoreAccessed) {
             window.location.href = callbackURL;         
