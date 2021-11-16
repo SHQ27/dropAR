@@ -8,9 +8,12 @@ $(document).ready(function() {
         var url = new URL(currentURL);
         var callback = url.searchParams.get("callback");
 
+        alert(0);
         if (blurred & callback && clicked && !playStoreAccessed) {
-            window.location.href = callbackURL;         
+            alert(1);
+            window.location.replace(callbackURL); 
         } else {
+            alert(2);
             if(blurred && playStoreAccessed) {
                 window.location.reload()
             } else if (blurred && window.history.length > 3) {
