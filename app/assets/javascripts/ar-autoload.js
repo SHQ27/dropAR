@@ -41,12 +41,12 @@ $(document).ready(function() {
             arButton[0].click();
         }
 
-        if (counter >= 50) {
+        if (counter >= 10) {
             clearInterval(checkExist);
             checkCompatibility();
         }
 
-    }, 100);
+    }, 1000);
 
     function checkCompatibility() {
         iOSVersion = getIOSVersion();    
