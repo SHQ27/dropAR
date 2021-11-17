@@ -11,7 +11,7 @@ $(document).ready(function() {
 
         if (blurred & hasCallback && clicked && !playStoreAccessed) {
             var callback = searchParams.get("callback");
-            callback = callback.replace('"', '');
+            callback = callback.replaceAll('"', '');
             alert(callback);
             window.location.href = callbackURL; 
         } else {
