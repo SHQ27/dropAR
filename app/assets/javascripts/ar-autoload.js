@@ -10,14 +10,17 @@ $(document).ready(function() {
         var hasCallback = searchParams.has('callback');
 
         if (blurred & hasCallback && clicked && !playStoreAccessed) {
+            //Redirect post load filter.
             var callback = searchParams.get("callback");
             callback = callback.replaceAll('"', '');
-            alert(callback);
             window.location.href = callbackURL; 
+            return false;
         } else {
             if(blurred && playStoreAccessed) {
+                //Reload post playstore
                 window.location.reload()
             } else if (blurred && window.history.length > 3) {
+                //Return to referrer
                 clearInterval(checkExist);
                 window.history.back();
             } else {
@@ -57,6 +60,7 @@ $(document).ready(function() {
                 window.open('https://play.google.com/store/apps/details?id=com.google.ar.core&hl=es_AR&gl=US', '_blank').focus();
                 return true;
             } else {
+                //TODO: Si vengo de QR quedo atrapado en el load
                 window.history.back()
                 return false;
             }
