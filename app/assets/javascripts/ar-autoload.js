@@ -9,9 +9,9 @@ $(document).ready(function() {
         var searchParams = new URLSearchParams(currentParams);
         var hasCallback = searchParams.has('callback');
 
-        alert(0);
+        alert('lalala');
         alert(blurred);
-        alert(url);
+        alert(currentURL);
         alert(clicked);
         alert(!playStoreAccessed);
         if (blurred & hasCallback && clicked && !playStoreAccessed) {
