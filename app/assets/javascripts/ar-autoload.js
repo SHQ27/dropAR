@@ -9,14 +9,12 @@ $(document).ready(function() {
         var searchParams = new URLSearchParams(currentParams);
         var hasCallback = searchParams.has('callback');
 
-        alert(currentURL);
-        alert(hasCallback);
         if (blurred & hasCallback && clicked && !playStoreAccessed) {
             var callback = searchParams.get("callback");
+            callback = callback.replace('"', '');
             alert(callback);
-            window.location.replace(callbackURL); 
+            window.location.href = callbackURL; 
         } else {
-            alert(2);
             if(blurred && playStoreAccessed) {
                 window.location.reload()
             } else if (blurred && window.history.length > 3) {
