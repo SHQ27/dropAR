@@ -14,6 +14,7 @@ $(document).ready(function() {
             var callback = searchParams.get("callback");
             callback = callback.replaceAll('"', '');
             window.location.href = callback; 
+            return false;
         } else {
             if(blurred && playStoreAccessed) {
                 //Reload post playstore
