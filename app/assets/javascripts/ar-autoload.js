@@ -41,7 +41,7 @@ $(document).ready(function() {
             arButton[0].click();
         }
 
-        if (counter >= 30) {
+        if (counter >= 50) {
             clearInterval(checkExist);
             checkCompatibility();
         }
