@@ -50,6 +50,7 @@ $(document).ready(function() {
         iOSVersion = getIOSVersion();    
         if (iOSVersion && iOSVersion < 13) {
             alert('La versión de tu sistema operativo debe ser 13 o superior para acceder al contenido');
+            //TODO: Qué hacemos acá, de esta forma quedamos acá
         }
         let iOS = iOSVersion ? true : false;
 
@@ -59,7 +60,7 @@ $(document).ready(function() {
                 window.open('https://play.google.com/store/apps/details?id=com.google.ar.core&hl=es_AR&gl=US', '_blank').focus();
                 return true;
             } else {
-                //TODO: Si vengo de QR quedo atrapado en el load
+                //TODO: Si vengo de QR quedo atrapado acá.
                 window.history.back()
                 return false;
             }
