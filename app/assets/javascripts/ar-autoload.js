@@ -1,7 +1,7 @@
 $(document).ready(function() {
     //Reload after focus
     var localStoragePlaystore = localStorage.getItem('playStoreAccessed');
-    var playStoreAccessed = localStoragePlaystore && ((localStoragePlaystore - 300000) > Date.now()) ? true : false;
+    var playStoreAccessed = localStoragePlaystore && ((localStoragePlaystore - 150000) > Date.now()) ? true : false;
     var blurred = false;
     window.onblur = function() { blurred = true; };
     window.onfocus = function() {
