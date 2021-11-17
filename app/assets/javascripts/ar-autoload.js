@@ -21,13 +21,7 @@ $(document).ready(function() {
             if(blurred && playStoreAccessed) {
                 //Reload post playstore
                 window.location.reload()
-            } else if (blurred && window.history.length > 3) {
-                //Return to referrer
-                clearInterval(checkExist);
-                window.history.back();
-            } else {
-                clearInterval(checkExist);
-            }
+            } 
         }
     };
 
@@ -84,8 +78,6 @@ $(document).ready(function() {
         if (hasCallback) {
             clearInterval(checkExist);
             window.location.href = callback;
-        } else if (window.history.length > 3){
-            window.history.back();
         } else {
             window.close();
         }
