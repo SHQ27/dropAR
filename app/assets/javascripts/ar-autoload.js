@@ -9,13 +9,11 @@ $(document).ready(function() {
         var searchParams = new URLSearchParams(currentParams);
         var hasCallback = searchParams.has('callback');
 
-        alert('lalala');
-        alert(blurred);
         alert(currentURL);
-        alert(clicked);
-        alert(!playStoreAccessed);
+        alert(hasCallback);
         if (blurred & hasCallback && clicked && !playStoreAccessed) {
             var callback = searchParams.get("callback");
+            alert(callback);
             window.location.replace(callbackURL); 
         } else {
             alert(2);
