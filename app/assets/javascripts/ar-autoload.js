@@ -13,10 +13,7 @@ $(document).ready(function() {
             //Redirect post load filter.
             var callback = searchParams.get("callback");
             callback = callback.replaceAll('"', '');
-            alert(callback);
-            window.location.href = callbackURL; 
-            alert('post relocate');
-            return false;
+            window.location.href = callback; 
         } else {
             if(blurred && playStoreAccessed) {
                 //Reload post playstore
