@@ -4,7 +4,7 @@ $(document).ready(function() {
     var blurred = false;
     window.onblur = function() { blurred = true; };
     window.onfocus = function() {
-        let currentURL = window.location.href;
+        let currentURL = decodeURI(window.location.href);
         let currentParams = window.location.search;
         var searchParams = new URLSearchParams(currentParams);
         var hasCallback = searchParams.has('callback');
