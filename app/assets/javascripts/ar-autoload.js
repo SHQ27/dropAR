@@ -31,12 +31,12 @@ $(document).ready(function() {
         ++counter;
         shadow = $('#modelViewer')[0].shadowRoot;
         arButton = $(shadow).find('#default-ar-button');
-        if (arButton.length && counter >= 5) {
+        if (arButton.length && counter >= 1) {
             clicked = true;
             arButton[0].click();
         }
 
-        if (counter >= 100) {
+        if (counter >= 300) {
             clearInterval(checkExist);
             checkCompatibility();
         }
