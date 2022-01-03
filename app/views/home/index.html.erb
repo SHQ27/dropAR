@@ -13,6 +13,9 @@
     <!-- Fontawesome -->
     <link href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" rel="stylesheet">
 
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Css Main Files -->
     <%= stylesheet_link_tag 'site_variables.css' %>
@@ -22,6 +25,7 @@
     <%= stylesheet_link_tag 'site_footer.css' %>
     <%= stylesheet_link_tag 'site.css' %>
     <%= stylesheet_link_tag 'w3-modal.css' %>
+
 
     <title>DropAr</title>
     <!-- Fav Icon -->
@@ -128,9 +132,8 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-          <video width="100%" height="100%" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
+          <video id='home-video' controls autoplay muted width="100%" height="100%">
+            <source src="/videos/home.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -158,11 +161,12 @@
         <div class="container">
             <div class="about-left">
                 <%= image_tag 'site-shape-1.png', :class => 'shape-1'%>
-                <h2>Titulo</h2>
+                <h2>Realidad Aumentada<br> al alcance de todos</h2>
                 <span class="divider"></span>
 
                 <p>
-                    La realidad aumentada (RA) es el término que se usa para definir una visión a través de un dispositivo tecnológico, directa o indirecta, de un entorno físico del mundo real, cuyos elementos se combinan con elementos virtuales para la creación de una realidad mixta en tiempo real.
+                Digitalizamos tus productos en 3D para transformar tu e-commerce en una experiencia interactiva de Realidad Aumentada. 
+                Tus clientes podrán visualizarlos en su espacio, percibir sus dimensiones reales y apreciarlos en detalle, potenciando así tus ventas y reduciendo su tasa de devolución. 
                 </p>
                 <!-- Button Ver en tu espacio y modal -->
                 <button class='dropButton' data-modal='aboutQRModal'>Ver en tu espacio</button>
@@ -192,8 +196,8 @@
     <!-- AR Section -->
     <section class="ar">
         <div class="container">
+<!--
             <div class="ar-left">
-                <%= image_tag 'site-female.webp'%>
             </div>
 
             <div class="ar-right">
@@ -204,7 +208,16 @@
                 </p>
             </div>
 
-            <%= image_tag 'site-shape-1.png', :class => 'shape-5'%>
+-->
+          <div class="owl-carousel" style='color: white;'>
+            <div> Your Content </div>
+            <div> Your Content2 </div>
+            <div> Your Content3 </div>
+            <div> Your Content4 </div>
+            <div> Your Content5 </div>
+            <div> Your Content6 </div>
+            <div> Your Content7 </div>
+          </div>
         </div>
     </section>
 
@@ -393,9 +406,20 @@
     <%= javascript_include_tag "site.js" %>
     <%= javascript_include_tag 'dropar_lib' %>
     <%= javascript_include_tag 'view-button' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
     <script>
       var aboutModel = new DropAr('about-model', 'TESTCLI', 'escritorio');
+      $(document).ready(function(){
+            $(".owl-carousel").owlCarousel({
+                    autoplay: true,
+                    autoplayTimeout: 2000,
+                    loop: true,
+                    items : 1 // THIS IS IMPORTANT
+            });
+      });
+//      document.getElementById('home-video').play();
     </script>
 
 </body>

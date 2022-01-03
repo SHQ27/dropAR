@@ -758,3 +758,11 @@
         padding: 80px 30px;
     }
 }
+
+/*Carousel*/
+
+.owl-carousel {
+    margin-top: 100px;
+    margin-bottom: 80px;
+    padding-right: 30px;
+}

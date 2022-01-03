@@ -70,3 +70,7 @@ gem 'rqrcode', '~> 2.0'
 
 #Contact form
 gem 'mail_form'
+
+#Slider
+gem 'owlcarousel-rails'
+gem 'jquery-rails'
