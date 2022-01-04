@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--primary-font-family);
+    color: var(--primary-text-color);
+}
+
+::selection {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* Global Styles */
+a {
+    text-decoration: none!important;
+}
+
+li {
+    list-style-type: none;
+}
+
+button, input, textarea {
+    background: none;
+    border: none;
+    outline: none;
+    font-family: var(--primary-font-family);
+    color: var(--primary-text-color);
+}
