@@ -306,7 +306,7 @@
 /* Products Section */
 .products {
     width: 100%;
-    padding-top: 100px;
+    padding-top: 60px;
     display: flex;
     justify-content: center;
     position: relative;
@@ -350,7 +350,6 @@
 
 .products .container .products-wrapper .product {
     width: 100%;
-    padding: 30px;
     background: #fff;
     border: 1px solid #E8EEFD;
     transition: all 0.3s ease;
@@ -425,7 +424,8 @@
 }
 
 .products .container .products-wrapper .product .product-bottom button {
-    width: 100px;
+    width: 200px;
+    margin: auto;
     height: 60px;
     border: 1px solid var(--secondary-color);
     background: transparent;
@@ -761,8 +761,19 @@
 
 /*Carousel*/
 
+.ar .container {
+    overflow: hidden;
+}
+
 .owl-carousel {
-    margin-top: 100px;
-    margin-bottom: 80px;
-    padding-right: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.owl-carousel .owl-stage-outer {
+    margin-left: 50px;
+}
+
+.owl-carousel div img {
+    width: 250px!important;    
 }

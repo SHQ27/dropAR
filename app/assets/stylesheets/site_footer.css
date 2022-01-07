@@ -85,6 +85,7 @@ footer .footer-top .container .footer-part .info-wrapper .info:last-child {
 
 footer .footer-top .container .footer-part .info-wrapper .info svg {
     margin-right: 10px;
+    margin-top: -20px;
 }
 
 footer .footer-top .container .footer-part .info-wrapper .info p {
