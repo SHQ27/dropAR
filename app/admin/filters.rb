@@ -29,7 +29,7 @@ ActiveAdmin.register Filter do
       row :vertical
       row :url do
         if not resource.callback_url.nil? and not resource.callback_url.empty?
-          Rails.application.routes.url_helpers.root_url.delete_suffix('/') + filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true') + '&callback="' + resource.callback_url + '"'
+          Rails.application.routes.url_helpers.root_url.delete_suffix('/') + filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true') + "&callback='" + resource.callback_url + "'"
         else 
           Rails.application.routes.url_helpers.root_url.delete_suffix('/') + filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true')
         end
