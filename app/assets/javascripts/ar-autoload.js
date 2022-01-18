@@ -10,7 +10,7 @@ $(document).ready(function() {
         var searchParams = new URLSearchParams(currentParams);
         var hasCallback = searchParams.has('callback');
         var callback = searchParams.get("callback");
-        callback = callback.replaceAll('"', '');
+        callback = callback.replaceAll("'", '');
 
         if (blurred & hasCallback && clicked && !playStoreAccessed) {
             //Redirect post load filter.
