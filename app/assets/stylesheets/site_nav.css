@@ -96,10 +96,11 @@ nav .hamburger-menu {
     position: fixed;
     top: 95px;
     right: 0px;
-    width: 75%;
+    width: 60%;
     height: calc(100% - 95px);
     background: #fff;
     border-left: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -183,21 +184,85 @@ nav .hamburger-menu .info-wrapper .info:hover p {
     nav .hamburger-menu {
         display: flex;
     }
+
+    nav .hamburger-menu {
+        top: 95px;
+        height: calc(40% - 80px);
+        z-index: 2;
+        opacity: 0.97;
+        width: 45%;
+    }
 }
 
 @media only screen and (max-width: 450px) {
     nav {
         height: 80px;
+        
     }
 
     nav .hamburger-menu {
         top: 80px;
-        height: calc(100% - 80px);
+        height: calc(50% - 80px);
+        z-index: 2;
+        opacity: 0.9;
     }
+    .fa {
+        font-size: 30px;
+    }
+
 }
 
 @media only screen and (max-width: 350px) {
     nav .hamburger-menu {
         width: 85%;
+        z-index: 2;
+        opacity: 0.8;
     }
+}
+
+.animated-icon3 span:nth-child(1) {
+top: 0px;
+-webkit-transform-origin: left center;
+-moz-transform-origin: left center;
+-o-transform-origin: left center;
+transform-origin: left center;
+}
+
+.animated-icon3 span:nth-child(2) {
+top: 10px;
+-webkit-transform-origin: left center;
+-moz-transform-origin: left center;
+-o-transform-origin: left center;
+transform-origin: left center;
+}
+
+.animated-icon3 span:nth-child(3) {
+top: 20px;
+-webkit-transform-origin: left center;
+-moz-transform-origin: left center;
+-o-transform-origin: left center;
+transform-origin: left center;
+}
+
+.animated-icon3.open span:nth-child(1) {
+-webkit-transform: rotate(45deg);
+-moz-transform: rotate(45deg);
+-o-transform: rotate(45deg);
+transform: rotate(45deg);
+top: 0px;
+left: 8px;
+}
+
+.animated-icon3.open span:nth-child(2) {
+width: 0%;
+opacity: 0;
+}
+
+.animated-icon3.open span:nth-child(3) {
+-webkit-transform: rotate(-45deg);
+-moz-transform: rotate(-45deg);
+-o-transform: rotate(-45deg);
+transform: rotate(-45deg);
+top: 21px;
+left: 8px;
 }

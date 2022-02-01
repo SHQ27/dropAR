@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    
     // Hamburger Menu
     $('body').on('click', function() {
         $('body').css('overflow', 'auto');
