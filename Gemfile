@@ -74,5 +74,3 @@ gem 'mail_form'
 gem 'jquery-rails'
 gem 'owlcarousel-rails'
 
-#Bootstrap
-gem 'bootstrap', '~> 5.1.3'
