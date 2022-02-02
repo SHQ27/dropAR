@@ -73,3 +73,4 @@ gem 'mail_form'
 
 gem 'jquery-rails'
 gem 'owlcarousel-rails'
+
