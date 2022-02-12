@@ -1,6 +1,15 @@
 $(document).ready(function() {
 
     
+    //Carousel-Play
+    console.log('document.ready')
+    $('.carousel').carousel({
+      interval: 4000,
+      //pause: 'hover',
+      //touch: true
+    });
+
+
     // Hamburger Menu
     $('body').on('click', function() {
         $('body').css('overflow', 'auto');
@@ -34,44 +43,90 @@ window.onmobileCheck = function() {
   return check;
 };
 
+document.addEventListener("turbolinks:load", function() {
+  var node = document.querySelector('.hero');
 
+        if (onmobileCheck() && !node.hasChildNodes()) {
+            const iframeElem = document.createElement('iframe');
+            iframeElem.style.width = '100%';
+            iframeElem.style.height = '450px';
+            iframeElem.setAttribute('src','https://www.youtube.com/embed/eBMJCxXxq-I');
+            iframeElem.setAttribute('title','DropAr Home Video');
+            iframeElem.setAttribute('frameborder','0');
+            iframeElem.setAttribute('allowfullscreen','allowfullscreen');
+            iframeElem.setAttribute('accelerometer','accelerometer');
+            iframeElem.setAttribute('clipboard-write','clipboard-write');
+            iframeElem.setAttribute('encrypted-media','encrypted-media');
+            iframeElem.setAttribute('gyroscope','gyroscope');
+            iframeElem.setAttribute('picture-in-picture','picture-in-picture');
 
+            let nodeElem = document.createElement('div');
+            nodeElem.appendChild(iframeElem);
+            node.appendChild(nodeElem);
 
-const node = document.querySelector('.hero');
+        } else {
+            const videoElem = document.createElement('video');
+            videoElem.setAttribute('src','/videos/home.mp4');
+            videoElem.setAttribute("width", "100%");
+            videoElem.setAttribute("height", "80%");
+            videoElem.setAttribute("controls", "controls");
+            videoElem.setAttribute("autoplay", "autoplay");
+            videoElem.setAttribute("muted", "muted");
+            videoElem.setAttribute("loop", "loop");
+            videoElem.setAttribute('id','home-video');
 
-if (onmobileCheck) {
-    const iframeElem = document.createElement('iframe');
-    iframeElem.style.width = '100%';
-    iframeElem.style.height = '450px';
-    iframeElem.setAttribute('src','https://www.youtube.com/embed/eBMJCxXxq-I');
-    iframeElem.setAttribute('title','DropAr Home Video');
-    iframeElem.setAttribute('frameborder','0');
-    iframeElem.setAttribute('allowfullscreen','allowfullscreen');
-    iframeElem.setAttribute('accelerometer','accelerometer');
-    iframeElem.setAttribute('clipboard-write','clipboard-write');
-    iframeElem.setAttribute('encrypted-media','encrypted-media');
-    iframeElem.setAttribute('gyroscope','gyroscope');
-    iframeElem.setAttribute('picture-in-picture','picture-in-picture');
+            let nodeElem = document.createElement('div');
+            nodeElem.appendChild(videoElem);
+            node.appendChild(nodeElem);
+        }
 
-    let nodeElem = document.createElement('div');
-    nodeElem.setAttribute('class','container');
-    nodeElem.appendChild(iframeElem);
-    node.appendChild(nodeElem);
+        
+});
 
-} else {
-    const videoElem = document.createElement('video');
-    videoElem.setAttribute('src','/videos/home.mp4');
-    videoElem.setAttribute('poster','/images/loading-logo.gif');
-    videoElem.setAttribute("width", "100%");
-    videoElem.setAttribute("height", "80%");
-    videoElem.setAttribute("controls", "controls");
-    videoElem.setAttribute("autoplay", "autoplay");
-    videoElem.setAttribute("muted", "muted");
-    videoElem.setAttribute("loop", "loop");
-    videoElem.setAttribute('id','home-video');
+//Carousel JS => 4 Items
+let items = document.querySelectorAll('.carousel .carousel-item')
 
-    let nodeElem = document.createElement('div');
-    nodeElem.setAttribute('class','container');
-    nodeElem.appendChild(videoElem);
-    node.appendChild(nodeElem);
-} 
+items.forEach((el) => {
+    // cantidad de slides por carusel-item
+    const minPerSlide = 4
+    let next = el.nextElementSibling
+    for (var i=1; i<minPerSlide; i++) {
+        if (!next) {
+            // wrap carousel by using first child
+            next = items[0]
+        }
+        let cloneChild = next.cloneNode(true)
+        el.appendChild(cloneChild.children[0])
+        next = next.nextElementSibling
+    }
+}) 
+
+//Modal JS
+var exampleModal = document.getElementById('exampleModal')
+exampleModal.addEventListener('show.bs.modal', function (event) {
+  // Boton que ejecuta el modal...
+  var button = event.relatedTarget
+  // Saco la info desde los ds-atributes y las guardo
+  var recipient = button.getAttribute('data-title')
+  var imageSrc = button.getAttribute('data-img')
+  console.log(imageSrc);
+  console.log(recipient);
+  //
+  // Creo un nodo nuevo, y lo appendeo al body del modal y al titulo .
+  var modalTitle = exampleModal.querySelector('.modal-title')
+  var modalImgSrc = exampleModal.querySelector('.modal-body')
+  // Elimino los elementos que tenga previamente .
+    while (modalImgSrc.firstChild) {
+      modalImgSrc.removeChild(modalImgSrc.firstChild);
+    }
+
+  var qrSource = document.createElement('img');
+  console.log(qrSource)
+  qrSource.setAttribute('src', imageSrc);
+  qrSource.setAttribute('style', 'width:100%; height:100%;')
+  console.log(qrSource);
+  modalImgSrc.appendChild(qrSource);
+  console.log(modalImgSrc)
+  modalTitle.textContent = 'Escanea el código para ver: ' + recipient
+  console.log(modalTitle);
+})
