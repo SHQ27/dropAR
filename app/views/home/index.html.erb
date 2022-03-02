@@ -2,381 +2,331 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#a103fc">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#3f244a">
-
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Fontawesome -->
-    <link href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <!-- Owl Carousel -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
+          
     <!-- Css Main Files -->
-    <%= stylesheet_link_tag 'site_variables.css' %>
-    <%= stylesheet_link_tag 'site_global-styles.css' %>
-    <%= stylesheet_link_tag 'site_custom-classes.css' %>
-    <%= stylesheet_link_tag 'site_nav.css' %>
-    <%= stylesheet_link_tag 'site_footer.css' %>
-    <%= stylesheet_link_tag 'site.css' %>
     <%= stylesheet_link_tag 'w3-modal.css' %>
+    <%= stylesheet_link_tag 'site_bootstrap.css' %> 
+    <%= stylesheet_link_tag 'site_styles.css' %>
+    
 
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
     <title>DropAr</title>
-    <!-- Fav Icon -->
 </head>
 <body>
-
     <% flash.each do |type, msg| %>
       <div class='flashMsg'>
         <span><%= msg %></span>
       </div>
     <% end %>
+
     <!-- Navigation Bar -->
-              <!--       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-                        <div class="container px-4">
-                            <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                            <div class="collapse navbar-collapse" id="navbarResponsive">
-                                <ul class="navbar-nav ms-auto">
-                                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav> -->
-    <nav>
-        <div class="container">
-            <div class="nav-left">
-                <a href="./" class="logo">
-                    <%= image_tag 'site-logo.png'%>
-                </a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="home-page">
+        <div class="container px-3 px-md-5">
+            <a class="navbar-brand" href="/index2"><%= image_tag 'site-logo.png'%></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item me-lg-4"><a class="nav-link active" aria-current="page" href="#home-page" target="_self">Home</a></li>
+                    <li class="nav-item me-lg-4"><a class="nav-link" href="#about" target="_self">About</a></li>
+                    <li class="nav-item me-lg-4"><a class="nav-link" href="#contact" target="_self">Contact</a></li>
+                </ul>
             </div>
-            
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
-            <button class="hamburger-menu-trigger"><i class="far fa-bars"></i></button>
-        </div>
-
-        <div class="hamburger-menu">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-          <video id='home-video' poster="/images/loading-logo.gif" controls autoplay muted loop width="100%" height="100%">
-            <source src="/videos/home.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <!-- <iframe width="100%" height="460" src="https://www.youtube.com/embed/P6vYyqHG54Y?controls=0&autoplay=1&fullscreen=1&mute=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-          
-        </div>
+    <section class ="hero" id="home">
+        
     </section>
 
-    <!-- Video Section -->
-<!--    <section class="video" id="video">
-
-      <%= image_tag 'site-shape-1.png', :class => 'shape-1'%>
-        <div class="container">
-            <h2>More about us</h2>
-            <span class="divider"></span>
-            <p>In this video you can learn more about what we do.</p>
-            
-            <div class="video-wrapper">
-                <%= image_tag 'site-shape-1.png', :class => 'shape-2'%>
-                <iframe width="1280" height="720" src="https://www.youtube-nocookie.com/embed/xAwB9lQnxAY&autoplay=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <%= image_tag 'site-shape-1.png', :class => 'shape-3'%>
-            </div>
-        </div>
-    </section>
--->
     <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-
-                 <div class="about-left">
-                    <%= image_tag 'site-shape-1.png', :class => 'shape-1'%>
-                    <h2>Realidad Aumentada<br> al alcance de todos</h2>
-                    <span class="divider"></span>
-
-                    <p>
-                    Digitalizamos tus productos en 3D para transformar tu e-commerce en una experiencia interactiva de Realidad Aumentada. 
-                    Tus clientes podrán visualizarlos en su espacio, percibir sus dimensiones reales y apreciarlos en detalle, potenciando así tus ventas y reduciendo su tasa de devolución. 
-                    </p>
-                    
-                </div>
-                <div class="about-right">
-
-                    <div id='about-model' style='height: 100%;'></div>
-                    <%= image_tag 'site-shape-1.png', :class => 'shape-4'%>
-                    <!-- Button Ver en tu espacio y modal  -->
-                    <button class='dropButton' data-modal='aboutQRModal'>Ver en tu espacio</button>
-                        <div id="aboutQRModal" class="w3-modal">
-                          <div class="w3-modal-content">
-                            <div class="w3-container">
-                              <span onclick="document.getElementById('aboutQRModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-                              <div class='modalContent' style='padding-top: 50px; padding-bottom: 50px; text-align: center;'>
-                                <p>Escanea el siguiente código para ver el modelo en tu espacio:</p>
-                                <img src='<%= @escritorioQR %>' style='width: 35%;'>
-
-                              </div>
-                            </div>
-                          </div>
+    <section id ="about" >
+            <div class="container container-fluid py-4 px-3 my-1 py-lg-5 my-lg-5">
+                <div class="row">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <div class="feature rounded-3 mb-3"><%= image_tag 'site-shape-1.png', :class => 'shape-1'%></div>
+                        <h2 class="h2 display-4">Realidad Aumentada</h2>
+                        <h2 class="h2 display-4 mb-3">al alcance de todos</h2>
+                        <hr class="hr">
+                        <p class="lead my-3">Digitalizamos tus productos en 3D para transformar tu e-commerce en una experiencia interactiva de Realidad Aumentada. Tus clientes podrán visualizarlos en su espacio, percibir sus dimensiones reales y apreciarlos en detalle, potenciando así tus ventas y reduciendo su tasa de devolución. </p>
+                    </div>
+                    <div class="col-lg-6 mb-5 mb-lg-0 d-flex flex-column">
+                        <div id='about-model'>
+                            
                         </div>
-                </div> 
+                        <!-- Button Ver en tu espacio ejecuta modal  -->
+                        <button class='cssbutton my-3 mx-auto' style='width:fit-content;' data-bs-toggle="modal" data-bs-target="#exampleModal" data-title="Silla Gamer" data-img="<%= @escritorioQR %>">Ver en tu espacio
+                        </button>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- AR Section Carousel -->
+    <section id="carousel-products">
+        <div class="container px-3 px-lg-5">
+            <div id="" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="col-md-3">
+                        <%= image_tag 'owl1.png', :class => 'd-block w-100'%>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-3">
+                        <%= image_tag 'owl2.png', :class => 'd-block w-100'%>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-3">
+                        <%= image_tag 'owl3.png', :class => 'd-block w-100'%>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-3">
+                        <%= image_tag 'owl4.png', :class => 'd-block w-100'%>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-3">
+                        <%= image_tag 'owl5.png', :class => 'd-block w-100'%>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-3">
+                        <%= image_tag 'owl6.png', :class => 'd-block w-100'%>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-3">
+                        <%= image_tag 'owl7.png', :class => 'd-block w-100'%>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-3">
+                        <%= image_tag 'owl8.png', :class => 'd-block w-100'%>
+                    </div>
+                </div>
+              </div>
+            </div>
         </div>
     </section>
 
-    <!-- AR Section -->
-    <section class="ar">
-        <div class="container">
-          <div class="owl-carousel" style='color: white;'>
-            <div> <%= image_tag 'owl1.png'%> </div>
-            <div> <%= image_tag 'owl2.png'%> </div>
-            <div> <%= image_tag 'owl3.png'%> </div>
-            <div> <%= image_tag 'owl4.png'%> </div>
-            <div> <%= image_tag 'owl5.png'%> </div>
-            <div> <%= image_tag 'owl6.png'%> </div>
-            <div> <%= image_tag 'owl7.png'%> </div>
-            <div> <%= image_tag 'owl8.png'%> </div>
-          </div>
+
+
+    <!-- Product Section-->
+    <section class="bg-light py-5 border-bottom">
+        <div class="container my-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bolder">TUS PRODUCTOS EN AR</h2>
+                <p class="lead mb-0">Escaneamos tus productos para transformarlos en una experiencia interactiva. </p>
+            </div>
+            <div class="row gx-5 justify-content-center">
+                <!-- Producto 1-->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card mb-5 mb-xl-0">
+                        <div class="card-body d-flex flex-column justify-content-between p-3">
+                            <div id='ar1'>
+                        
+                            </div>
+                            <!-- Button Ver en tu espacio y modal  -->
+                            <button class='cssbutton my-3 mx-auto' style='width:fit-content;' data-bs-toggle="modal" data-bs-target="#exampleModal" data-title="Camara" data-img="<%= @ar1QR %>">Ver en tu espacio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 2-->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card mb-5 mb-xl-0">
+                        <div class="card-body d-flex flex-column justify-content-between p-3">
+                            <div id='ar2'>
+                        
+                            </div>
+                            <!-- Button Ver en tu espacio y modal  -->
+                            <button class='cssbutton my-3 mx-auto' style='width:fit-content;' data-bs-toggle="modal" data-bs-target="#exampleModal" data-title="Escritorio" data-img="<%= @ar2QR %>">Ver en tu espacio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Producto 3-->
+                 <div class="col-md-6 col-lg-3">
+                    <div class="card mb-5 mb-xl-0">
+                        <div class="card-body d-flex flex-column justify-content-between p-3">
+                            <div id='ar3'>
+                        
+                            </div>
+                            <!-- Button Ver en tu espacio y modal  -->
+                            <button class='cssbutton my-3 mx-auto' style='width:fit-content;' data-bs-toggle="modal" data-bs-target="#exampleModal" data-title="Zapatilla" data-img="<%= @ar3QR %>">Ver en tu espacio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 4-->
+                 <div class="col-md-6 col-lg-3">
+                    <div class="card mb-5 mb-xl-0">
+                        <div class="card-body d-flex flex-column justify-content-between p-3">
+                            <div id='ar4'>
+                        
+                            </div>
+                            <!-- Button Ver en tu espacio y modal  -->
+                            <button class='cssbutton my-3 mx-auto' style='width:fit-content;' data-bs-toggle="modal" data-bs-target="#exampleModal" data-title="Raquetero" data-img="<%= @ar4QR %>">Ver en tu espacio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products">
-      <div class="container">
-        <h2>Tu producto en AR</h2>
-        <span class="divider"></span>
-        <p class="top-p">Escaneamos tus productos para transformarlos en una experiencia interactiva. </p>
-
-        <div class="products-wrapper">
-          <div class="product">
-            <div style='width: 100%;height: 350px;'id='ar1'></div>
-            <div class="product-bottom">
-              <button class='dropButton' data-modal='ar1QRModal'>Ver en tu espacio</button>
-            </div>
-
-          </div>
-          <div class="product">
-            <div style='width: 100%;height: 350px;'id='ar2'></div>
-            <div class="product-bottom">
-              <button class='dropButton' data-modal='ar2QRModal'>Ver en tu espacio</button>
-            </div>
-
-          </div>
-          <div class="product">
-            <div style='width: 100%;height: 350px;'id='ar3'></div>
-            <div class="product-bottom">
-              <button class='dropButton' data-modal='ar3QRModal'>Ver en tu espacio</button>
-            </div>
-
-          </div>
-          <div class="product">
-            <div style='width: 100%;height: 350px;'id='ar4'></div>
-            <div class="product-bottom">
-              <button class='dropButton' data-modal='ar4QRModal'>Ver en tu espacio</button>
-            </div>
-
-          </div>
-        </div>
-        <div id="ar1QRModal" class="w3-modal">
-          <div class="w3-modal-content">
-            <div class="w3-container">
-              <span onclick="document.getElementById('ar1QRModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-              <div class='modalContent' style='padding-top: 50px; padding-bottom: 50px; text-align: center;'>
-                <p>Escanea el siguiente código para ver el modelo en tu espacio:</p>
-                <img src='<%= @ar1QR %>' style='width: 35%;'>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="ar2QRModal" class="w3-modal">
-          <div class="w3-modal-content">
-            <div class="w3-container">
-              <span onclick="document.getElementById('ar2QRModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-              <div class='modalContent' style='padding-top: 50px; padding-bottom: 50px; text-align: center;'>
-                <p>Escanea el siguiente código para ver el modelo en tu espacio:</p>
-                <img src='<%= @ar2QR %>' style='width: 35%;'>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="ar3QRModal" class="w3-modal">
-          <div class="w3-modal-content">
-            <div class="w3-container">
-              <span onclick="document.getElementById('ar3QRModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-              <div class='modalContent' style='padding-top: 50px; padding-bottom: 50px; text-align: center;'>
-                <p>Escanea el siguiente código para ver el modelo en tu espacio:</p>
-                <img src='<%= @ar3QR %>' style='width: 35%;'>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="ar4QRModal" class="w3-modal">
-          <div class="w3-modal-content">
-            <div class="w3-container">
-              <span onclick="document.getElementById('ar4QRModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-              <div class='modalContent' style='padding-top: 50px; padding-bottom: 50px; text-align: center;'>
-                <p>Escanea el siguiente código para ver el modelo en tu espacio:</p>
-                <img src='<%= @ar4QR %>' style='width: 35%;'>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-box">
-                <h2>Contactanos</h2>
-                <span class="divider"></span>
-                <p>Contanos sobre tu negocio o emprendimiento y nuestro equipo encontrará la mejor estrategia para potenciar tus ventas.</p>
-                <form method='post' action='/send_mail' id='mailSend'>
-                  <div class='input-container'>
-                    <input type='text' name='name' placeholder='Nombre' required>
-                  </div>
-                  <div class='input-container'>
-                    <input type='text' name='email' placeholder='Email' required>
-                  </div>
-                  <div class='message-container'>
-                    <textarea rows='10' name='message' placeholder='Ingresá tu consulta y nuestro equipo se contactará con vos a la brevedad.' required/></textarea>
-                  </div>
-                  <input type='submit' style='display:none;' id='mailSendSubmit'/>
-                </form>
-                <button onclick="$('#mailSendSubmit').click();">Enviar</button>
-            </div>
-        </div>
-    </section>
-    <!-- Footer -->
-    <footer>
-        <div class="footer-top">
-            <div class="container">
-                <div class="footer-part">
-                    <a href="./" class="logo">
-                        <%= image_tag 'site-logo-white.png'%>
-                    </a>
-
-                    <p>
-                        Somos una empresa de producción de contenidos audiovisuales especializada en el desarrollo de Realidad Aumentada. Ofrecemos soluciones a problemáticas de mercado que abarcan desde el planeamiento creativo del proyecto hasta la producción y mantenimiento del mismo. 
-                    </p>
+    <section id="contact" class="bg-light py-5">
+            <div class="container px-5 my-5 px-5">
+                <div class="text-center mb-5">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
+                    <h2 class="fw-bolder">Contactanos</h2>
+                    <p class="lead mb-0">Contanos sobre tu negocio o emprendimiento y nuestro equipo encontrará la mejor estrategia para potenciar tus ventas.</p>
                 </div>
-
-                <div class="footer-part">
-                    <h3>Navigation</h3>
-
-                    <div class="links">
-                        <a href="#home">Home</a>
-                        <a href="#about">About Us</a>
-                        <a href="#contact">Contact</a>
-                    </div>
-                </div>
-
-                <div class="footer-part">
-                    <h3>Contact info</h3>
-
-                    <div class="info-wrapper">
-                        <a href="tel:+549116001-2636" class="info">
-                            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20.4493 15.4119L17.5125 12.4813C16.4637 11.4346 14.6806 11.8533 14.2611 13.2139C13.9465 14.1559 12.8976 14.6793 11.9536 14.4699C9.85594 13.9466 7.02405 11.2253 6.49962 9.02732C6.18497 8.0853 6.81428 7.03865 7.75824 6.7247C9.12175 6.30604 9.54129 4.52674 8.49244 3.4801L5.55566 0.549489C4.71658 -0.183163 3.45796 -0.183163 2.72376 0.549489L0.730951 2.53812C-1.26186 4.63141 0.940721 10.1786 5.87031 15.0979C10.7999 20.0171 16.3588 22.3198 18.4565 20.2264L20.4493 18.2378C21.1836 17.4005 21.1836 16.1445 20.4493 15.4119Z" fill="white"/>
-                            </svg>
-                            <p>+54 9 11 6001-2636</p>
-                        </a>
-
-                        <a href="tel:+549114969-4247" class="info">
-                            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20.4493 15.4119L17.5125 12.4813C16.4637 11.4346 14.6806 11.8533 14.2611 13.2139C13.9465 14.1559 12.8976 14.6793 11.9536 14.4699C9.85594 13.9466 7.02405 11.2253 6.49962 9.02732C6.18497 8.0853 6.81428 7.03865 7.75824 6.7247C9.12175 6.30604 9.54129 4.52674 8.49244 3.4801L5.55566 0.549489C4.71658 -0.183163 3.45796 -0.183163 2.72376 0.549489L0.730951 2.53812C-1.26186 4.63141 0.940721 10.1786 5.87031 15.0979C10.7999 20.0171 16.3588 22.3198 18.4565 20.2264L20.4493 18.2378C21.1836 17.4005 21.1836 16.1445 20.4493 15.4119Z" fill="white"/>
-                            </svg>
-                            <p>+54 9 11 4969-4247</p>
-                        </a>
-
-                        <a href="mailto:dropar.ar@gmail.com" class="info">
-                            <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15.427 8.11919L23.2729 13.0792V2.94971L15.427 8.11919Z" fill="white"/>
-                                <path d="M0 2.94971V13.0792L7.84586 8.11919L0 2.94971Z" fill="white"/>
-                                <path d="M21.8182 0H1.4545C0.728674 0 0.152671 0.541094 0.0435791 1.23782L11.6364 8.87568L23.2292 1.23782C23.1201 0.541094 22.5441 0 21.8182 0Z" fill="white"/>
-                                <path d="M14.0946 8.99755L12.0364 10.3532C11.9142 10.4332 11.776 10.4725 11.6364 10.4725C11.4968 10.4725 11.3586 10.4332 11.2364 10.3532L9.17819 8.99609L0.0465088 14.7721C0.158509 15.463 0.731603 15.9998 1.45452 15.9998H21.8183C22.5412 15.9998 23.1143 15.463 23.2263 14.7721L14.0946 8.99755Z" fill="white"/>
-                            </svg>                                
-                            <p>dropar.ar@gmail.com</p>
-                        </a>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <form method='post' action='/send_mail' id='mailSend'>
+                            <!-- Nombre y apellido input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" name='name' type="text" placeholder="Ingresa tu nombre completo..." required/>
+                                <label for="name">Nombre y apellido</label>
+                                <div class="invalid-feedback" >El nombre es requerido.</div>
+                            </div>
+                            <!-- Email input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="email" name='email' type="email" placeholder="name@example.com" data-sb-validations="required,email"/>
+                                <label for="email">Email</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">El email es requerido.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email no valido.</div>
+                            </div>
+                            <!-- Mensaje input-->
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" name='message' type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                <label for="message">Mensaje</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">El mensaje es requerido.</div>
+                            </div>
+                            <!-- Submit success message-->
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Formulario enviado correctamente!</div>
+                                </div>
+                            </div>
+                            <!-- Submit error message-->
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error al enviar mensaje!</div></div>
+                            <!-- Submit Button-->
+                            <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Enviar</button></div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="footer-bottom">
+
+
+        <section id="footer">
+            <div class="container py-4">
+                <div class="row py-3 mx-3 py-md-5 text-white">
+                    <div class="col-md-5 d-flex flex-column justify-content-around mb-5 mb-md-0">
+                        <a href="#home-page" class="mb-3 footer-img">
+                            <%= image_tag 'site-logo-white.png', :style => 'width:200px'%>
+                        </a>
+                        <p class="text-muted mt-2 footer-text">
+                            Somos una empresa de producción de contenidos audiovisuales especializada en el desarrollo de Realidad Aumentada. Ofrecemos soluciones a problemáticas de mercado que abarcan desde el planeamiento creativo del proyecto hasta la producción y mantenimiento del mismo.    
+                        </p>
+                        <div class="d-flex social-media my-3">
+                            <ul class="ps-0">
+                                <li><span class="social-icon social-google"><i class="bi bi-youtube"><a href="https://www.youtube.com/channel/UCBild6ouuYlqPKd-OimtWaA"></a></i></span></li>
+                                <li><span class="social-icon social-instagram"><i class="bi bi-instagram"></i><a href="https://www.instagram.com/dropar.ar/"></a></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3 ms-md-5">
+                        <p class="h4 mb-4">Navigation</p>
+                        <ul class="nav flex-column ul-transform">
+                            <li class="nav-item my-2 my-md-3"><a href="#home-page" class="nav-link p-0 text-muted" target="_self">Home</a></li>
+                            <li class="nav-item my-2 my-md-3"><a href="#about" class="nav-link p-0 text-muted" target="_self">About Us</a></li>
+                            <li class="nav-item my-2 my-md-3"><a href="#contact" class="nav-link p-0 text-muted" target="_self">Contacto</a></li>    
+                        </ul>
+                    </div>
+                    <div class="col-md-3 mb-3 ">
+                        <p class="h4 mb-4">Contact-Info</p>
+                        <ul class="nav flex-column ul-transform">
+                            <li class="nav-item my-2">
+                                <a href="#Home" class="nav-link p-0 text-muted d-flex">
+                                    <i class="bi bi-telephone text-white"></i>
+                                    <p class="text-muted mx-3">+54 9 11 6001-2636</p>
+                                </a>
+                            </li>
+                            <li class="nav-item my-2">
+                                <a href="#Home" class="nav-link p-0 text-muted d-flex">
+                                    <i class="bi bi-telephone text-white"></i>
+                                    <p class="text-muted mx-3">+54 9 11 4969-4247</p>
+                                </a>
+                            </li>
+                            <li class="nav-item my-2">
+                                <a href="mailto:dropar.ar@gmail.com" class="nav-link p-0 text-muted d-flex">
+                                    <i class="bi bi-envelope text-white"></i>
+                                    <p class="text-muted mx-3">dropar.ar@gmail.com</p>
+                                </a>
+                            </li>    
+                        </ul>
+                    </div>   
+                </div>
+                
+        </section>
+        <div class="footer-last d-flex">
             <div class="container">
-                <p>&copy; 2022 DropAr</p>
+                <div class="d-flex justify-content-center my-4 text-center text-white">
+                    <p class="h5">&copy; 2022 DropAr</p>
+                </div>
             </div>
         </div>
-    </footer>
 
+                <!-- Modal Section -->
+                <!-- Modal Generico -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+    <%= javascript_include_tag "bootstrap.bundle.min.js" %>
     <%= javascript_include_tag "jquery.min.js" %>
     <%= javascript_include_tag "site.js" %>
     <%= javascript_include_tag 'dropar_lib' %>
     <%= javascript_include_tag 'view-button' %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-        <!-- Bootstrap core JS ending-->
-    <script>
+
+    <!-- <script>
       var aboutModel = new DropAr('about-model', 'SITE', 'site0');
       var product1Model = new DropAr('ar1', 'SITE', 'site1');
       var product1Model = new DropAr('ar2', 'SITE', 'site2');
       var product1Model = new DropAr('ar3', 'SITE', 'site3');
       var product1Model = new DropAr('ar4', 'SITE', 'site4');
-
-      $(document).ready(function(){
-            $(".owl-carousel").owlCarousel({
-                    autoplay: true,
-                    autoplayTimeout: 2000,
-                    loop: true,
-                    items : 1 // THIS IS IMPORTANT
-            });
-      });
-    </script>
-
-    <script type="text/javascript">
-        document.querySelector('.first-button').addEventListener('click', function () {
-
-        document.querySelector('.animated-icon1').classList.toggle('open');
-        });
-        document.querySelector('.second-button').addEventListener('click', function () {
-
-        document.querySelector('.animated-icon2').classList.toggle('open');
-        });
-        document.querySelector('.third-button').addEventListener('click', function () {
-
-        document.querySelector('.animated-icon3').classList.toggle('open');
-        });
-    </script>
-
+      console.log('I finished loading models')
+      document.body.onload = function() {
+            console.log('I loaded after body.onload!');
+        };
+      
+    </script> -->
 </body>
 </html>
