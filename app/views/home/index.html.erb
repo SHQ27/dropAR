@@ -9,7 +9,10 @@
           
     <!-- Css Main Files -->
     <%= stylesheet_link_tag 'w3-modal.css' %>
-    <%= stylesheet_link_tag 'site_styles.css' %> 
+    <%= stylesheet_link_tag 'site_bootstrap.css' %> 
+    <%= stylesheet_link_tag 'site_styles.css' %>
+    
+
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
@@ -24,7 +27,7 @@
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="home-page">
-        <div class="container px-5">
+        <div class="container px-3 px-md-5">
             <a class="navbar-brand" href="/index2"><%= image_tag 'site-logo.png'%></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -44,8 +47,8 @@
 
     <!-- About Section -->
     <section id ="about" >
-            <div class="container py-4 px-3 my-1 py-lg-5 my-lg-5">
-                <div class="row gx-5">
+            <div class="container container-fluid py-4 px-3 my-1 py-lg-5 my-lg-5">
+                <div class="row">
                     <div class="col-lg-6 mb-5 mb-lg-0">
                         <div class="feature rounded-3 mb-3"><%= image_tag 'site-shape-1.png', :class => 'shape-1'%></div>
                         <h2 class="h2 display-4">Realidad Aumentada</h2>
@@ -240,7 +243,7 @@
                             Somos una empresa de producción de contenidos audiovisuales especializada en el desarrollo de Realidad Aumentada. Ofrecemos soluciones a problemáticas de mercado que abarcan desde el planeamiento creativo del proyecto hasta la producción y mantenimiento del mismo.    
                         </p>
                         <div class="d-flex social-media my-3">
-                            <ul>
+                            <ul class="ps-0">
                                 <li><span class="social-icon social-google"><i class="bi bi-youtube"><a href="https://www.youtube.com/channel/UCBild6ouuYlqPKd-OimtWaA"></a></i></span></li>
                                 <li><span class="social-icon social-instagram"><i class="bi bi-instagram"></i><a href="https://www.instagram.com/dropar.ar/"></a></span></li>
                             </ul>
@@ -301,7 +304,7 @@
                         
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                       </div>
                     </div>
                   </div>
@@ -313,14 +316,17 @@
     <%= javascript_include_tag 'dropar_lib' %>
     <%= javascript_include_tag 'view-button' %>
 
-    <script>
+    <!-- <script>
       var aboutModel = new DropAr('about-model', 'SITE', 'site0');
       var product1Model = new DropAr('ar1', 'SITE', 'site1');
       var product1Model = new DropAr('ar2', 'SITE', 'site2');
       var product1Model = new DropAr('ar3', 'SITE', 'site3');
       var product1Model = new DropAr('ar4', 'SITE', 'site4');
-
+      console.log('I finished loading models')
+      document.body.onload = function() {
+            console.log('I loaded after body.onload!');
+        };
       
-    </script>
+    </script> -->
 </body>
 </html>

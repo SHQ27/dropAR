@@ -59,6 +59,7 @@ document.addEventListener("turbolinks:load", function() {
             iframeElem.setAttribute('encrypted-media','encrypted-media');
             iframeElem.setAttribute('gyroscope','gyroscope');
             iframeElem.setAttribute('picture-in-picture','picture-in-picture');
+            iframeElem.setAttribute('id','home-video');
 
             let nodeElem = document.createElement('div');
             nodeElem.appendChild(iframeElem);
@@ -80,8 +81,18 @@ document.addEventListener("turbolinks:load", function() {
             node.appendChild(nodeElem);
         }
 
-        
-});
+        //script para autoplay
+        const myVideo = document.getElementById('home-video');
+        // Not all browsers return promise from .play().
+        const playPromise = myVideo.play() || Promise.reject('');
+        playPromise.then(() => {
+          // Video could be autoplayed, do nothing.
+        }).catch(err => {
+          // Video couldn't be autoplayed because of autoplay policy. Mute it and play.
+          myVideo.muted = true;
+          myVideo.play();
+        });
+        });
 
 //Carousel JS => 4 Items
 let items = document.querySelectorAll('.carousel .carousel-item')
@@ -109,8 +120,6 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
   // Saco la info desde los ds-atributes y las guardo
   var recipient = button.getAttribute('data-title')
   var imageSrc = button.getAttribute('data-img')
-  console.log(imageSrc);
-  console.log(recipient);
   //
   // Creo un nodo nuevo, y lo appendeo al body del modal y al titulo .
   var modalTitle = exampleModal.querySelector('.modal-title')
@@ -121,12 +130,17 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
     }
 
   var qrSource = document.createElement('img');
-  console.log(qrSource)
   qrSource.setAttribute('src', imageSrc);
   qrSource.setAttribute('style', 'width:100%; height:100%;')
-  console.log(qrSource);
   modalImgSrc.appendChild(qrSource);
-  console.log(modalImgSrc)
-  modalTitle.textContent = 'Escanea el código para ver: ' + recipient
-  console.log(modalTitle);
+  modalTitle.textContent = 'Escanea el código para ver: ' + recipient;
+})
+
+/*Autoload de Modelados*/
+window.addEventListener('load',function(){
+  var aboutModel = new DropAr('about-model', 'SITE', 'site0');
+  var product1Model = new DropAr('ar1', 'SITE', 'site1');
+  var product1Model = new DropAr('ar2', 'SITE', 'site2');
+  var product1Model = new DropAr('ar3', 'SITE', 'site3');
+  var product1Model = new DropAr('ar4', 'SITE', 'site4');
 })
