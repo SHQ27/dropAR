@@ -604,16 +604,16 @@
     .about .container {
         grid-template-columns: 1fr;
     }
-    
+
     .about .container .about-left h2 {
         font-size: 2em;
         font-weight: 600;
     }
     .about .container .about-right .shape-4 {
-    display: none;
+        display: none;
     }
     .about .container .about-left .shape-1 {
-    display: none;
+        display: none;
     }
 }
 @media only screen and (max-width: 620px) {
@@ -671,31 +671,31 @@
         border-right: none;
         border-bottom: none;
     }
-    
+
     .products .container .products-wrapper .product:nth-child(2) {
         border-right: none;
         border-bottom: none;
     }
-    
+
     .products .container .products-wrapper .product:nth-child(3) {
         border-right: 1px solid #E8EEFD;
         border-bottom: none;
     }
-    
+
     .products .container .products-wrapper .product:nth-child(4) {
         border-bottom: none;
         border-right: none;
     }
-    
+
     .products .container .products-wrapper .product:nth-child(5) {
         border-bottom: none;
         border-right: none;
     }
-    
+
     .products .container .products-wrapper .product:nth-child(6) {
         border-right: 1px solid #E8EEFD;
     }
-    
+
     .products .container .products-wrapper .product:nth-child(7) {
         border-right: none;
     }
@@ -710,32 +710,32 @@
         border-right: none;
         border-bottom: none;
     }
-    
+
     .products .container .products-wrapper .product:nth-child(2) {
         border-right: 1px solid #E8EEFD;
         border-bottom: none;
     }
-    
+
     .products .container .products-wrapper .product:nth-child(3) {
         border-right: none;
         border-bottom: none;
     }
-    
+
     .products .container .products-wrapper .product:nth-child(4) {
         border-bottom: none;
         border-right: 1px solid #E8EEFD;
     }
-    
+
     .products .container .products-wrapper .product:nth-child(5) {
         border-bottom: none;
         border-right: none;
     }
-    
+
     .products .container .products-wrapper .product:nth-child(6) {
         border-right: 1px solid #E8EEFD;
         border-bottom: none;
     }
-    
+
     .products .container .products-wrapper .product:nth-child(7) {
         border-right: none;
     }
@@ -768,8 +768,8 @@
         background-size: contain;
     }
     .contact .container form .input-container{
-    width: 100%;
-    padding: 10px;
+        width: 100%;
+        padding: 10px;
     }
 }
 
@@ -778,8 +778,8 @@
         padding: 80px 30px;
     }
     .contact .container form .input-container{
-    width: 100%;
-    padding: 10px;
+        width: 100%;
+        padding: 10px;
     }
     .contact .container {
         width: 95%;
@@ -790,9 +790,9 @@
 }
 
 /* Footer (Responsive) */
-    footer {
-        margin-top: 30px;
-    }
+footer {
+    margin-top: 30px;
+}
 
 /*Carousel*/
 

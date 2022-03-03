@@ -1,57 +1,57 @@
 
 .feature {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 4rem;
-  width: 4rem;
-  font-size: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    width: 4rem;
+    font-size: 2rem;
 }
 
 /* From cssbuttons.io by @nikk7007 */
 .cssbutton{
- padding: 0.8em 1.8em;
- border: 2px solid #17C3B2;
- position: relative;
- overflow: hidden;
- background-color: transparent;
- text-align: center;
- text-transform: uppercase;
- font-size: 16px;
- transition: .3s;
- z-index: 1;
- font-family: inherit;
- color: black;
+    padding: 0.8em 1.8em;
+    border: 2px solid #17C3B2;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: black;
 }
 
 .cssbutton::before {
- content: '';
- width: 0;
- height: 300%;
- position: absolute;
- top: 50%;
- left: 50%;
- transform: translate(-50%, -50%);
- background: #17C3B2;
- transition: .5s ease;
- display: block;
- z-index: -1;
+    content: '';
+    width: 0;
+    height: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #17C3B2;
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
 }
 
 .cssbutton:hover::before {
- width: 101%;
+    width: 101%;
 }
 
 .cssbutton:hover {
- color: #111;
+    color: #111;
 }
 
 .shape-1 {
-  width: 25px;
-  top: -70px;
-  left: 0px;
-  z-index: 1;
-  transform: rotate(-10deg);
+    width: 25px;
+    top: -70px;
+    left: 0px;
+    z-index: 1;
+    transform: rotate(-10deg);
 }
 
 #carousel-products {
@@ -80,57 +80,57 @@
 
 /* medium and up screens */
 @media (min-width: 768px) {
-    
+
     .carousel-inner .carousel-item-end.active,
     .carousel-inner .carousel-item-next {
-      transform: translateX(25%);
+        transform: translateX(25%);
     }
-    
+
     .carousel-inner .carousel-item-start.active, 
     .carousel-inner .carousel-item-prev {
-      transform: translateX(-25%);
+        transform: translateX(-25%);
     }
 }
 
 .carousel-inner .carousel-item-end,
 .carousel-inner .carousel-item-start { 
-  transform: translateX(0);
+    transform: translateX(0);
 }
 
 .carousel-inner > .item > img {
-  min-width: 100%;
-  width: 100%;
+    min-width: 100%;
+    width: 100%;
 }
 
 #about-model, #ar1, #ar2, #ar3, #ar4 {
-  height:  300px;
+    height:  300px;
 }
 
 #footer {
-  background: #292932;
-  min-height: 350px;
+    background: #292932;
+    min-height: 350px;
 }
 
 .ul-transform li {
-   transition: color .5s;
+    transition: color .5s;
 }
 
 .ul-transform li a:hover {
-  color:  white!important ;
+    color:  white!important ;
 
 }
 
 .footer-last {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background: #24242b;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: #24242b;
 }
 
 .footer-text {
-  font-size: 1.1rem;
+    font-size: 1.1rem;
 }
 
 .footer-img {
-  width:  60%;
+    width:  60%;
 }
 /* Navbar de Redes Sociales */
 .social-media ul {
@@ -184,53 +184,54 @@
 
 @media (min-width: 576px) {
 
-.modal-dialog {
-  max-width: 400px !important;
-}
+    .modal-dialog {
+        max-width: 400px !important;
+    }
 
 
-.hr {
-  width: 30%;
-}
+    .hr {
+        width: 30%;
+    }
 
 
-/*Reglas model*/
+    /*Reglas model*/
 
-.ar-container {
-  height: 100vh;
-  width: 100vw;
-}
+    .ar-container {
+        height: 100vh;
+        width: 100vw;
+    }
 
-#modelViewer {
-  background-image: linear-gradient(to right top, #870fa6, #a8009c, #c20091, #d80085, #ea0078, #f20b6e, #f91a64, #ff2859, #ff3550, #ff4147, #rf4c3d, #ff5734); 
-  width: 100%; 
-  height: 100%; 
-  margin: auto;
-}
+    #modelViewer {
+        background-image: linear-gradient(to right top, #870fa6, #a8009c, #c20091, #d80085, #ea0078, #f20b6e, #f91a64, #ff2859, #ff3550, #ff4147, #rf4c3d, #ff5734); 
+        width: 100%; 
+        height: 100%; 
+        margin: auto;
+    }
 
-#droparLoading {
-  height: 100vh; 
-  width: 100vw; 
-  position: absolute; 
-  top: 0; 
-  z-index: 1000;
-  transform: translate3d(0, 0, 1000); 
-  background-color: black; 
-  display: flex; 
-  justify-content: center;
-}
+    #droparLoading {
+        height: 100vh; 
+        width: 100vw; 
+        position: absolute; 
+        top: 0; 
+        z-index: 1000;
+        transform: translate3d(0, 0, 1000); 
+        background-color: black; 
+        display: flex; 
+        justify-content: center;
+    }
 
-.isdropAR {
-  width: 250px; 
-  margin: auto;
-}
+    .isdropAR {
+        width: 250px; 
+        margin: auto;
+    }
 
-.isdropARimg {
-  width: 250px; 
-  margin-top: -20%;
-}
+    .isdropARimg {
+        width: 250px; 
+        margin-top: -20%;
+    }
 
-label {
-  font-size: 15px;
-  color: #a9a9a9;
+    label {
+        font-size: 15px;
+        color: #a9a9a9;
+    }
 }
