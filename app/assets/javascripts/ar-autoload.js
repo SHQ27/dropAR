@@ -24,11 +24,12 @@ $(document).ready(function() {
 
     //Autoload
     var counter = 0;
+    alert
     var checkExist = setInterval(function() {
         ++counter;
         isIOS = getIOSVersion();
         checkCompatibility();
-        if (counter > 300) {
+        if (counter > 1) {
             if (isIOS) {
                 alert('IOS');
                 $('#IOSLink').click();
@@ -39,7 +40,7 @@ $(document).ready(function() {
             clearInterval(checkExist);
             accessedAR = true;
         }
-    }, 100);
+    }, 500);
 
     function checkCompatibility() {
         iOSVersion = getIOSVersion();    
