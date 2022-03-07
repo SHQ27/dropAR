@@ -1,7 +1,7 @@
-class DropAr {
+class DropArModel {
 
     constructor(renderDivId, clientCode, filterCode) {
-        this.endpoint = 'https://dropar.ar/filters';
+        this.endpoint = 'https://dropar.ar/filters/model/';
         this.renderDivId = renderDivId;
         this.clientCode = clientCode;
         this.filterCode = filterCode;

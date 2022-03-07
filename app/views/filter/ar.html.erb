@@ -1,0 +1,27 @@
+<html lang="en" style='height: 100vh; width: 100vw'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="recklessMFO">
+    <title>DropAr</title>
+    <!-- Css Main Files -->
+    <%= stylesheet_link_tag 'site_styles.css' %> 
+
+    <!-- Js Main Files -->
+    <%= javascript_include_tag "jquery.min.js" %>
+  </head>
+
+  <body style='margin: 0px'>
+    <% if @filter %>
+      <a id='IOSLink' rel='ar' href='<%= @filter.usdz_url%>'></a>
+      <a id='AndroidLink' href="intent://arvr.google.com/scene-viewer/1.0?file=<%= @filter.glb_url%>;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;"></a>
+      <div id='droparLoading'>
+        <div class="isdropAR">
+          <%= image_tag("loading-logo.gif", :style => "width: 250px; margin-top: -20%;") %>
+        </div>
+      </div>
+      <%= javascript_include_tag "ar-autoload" %>
+    <% end %>
+  </body>
+</html>

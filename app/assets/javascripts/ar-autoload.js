@@ -3,6 +3,8 @@ $(document).ready(function() {
     var localStoragePlaystore = localStorage.getItem('playStoreAccessed');
     var playStoreAccessed = localStoragePlaystore && ((localStoragePlaystore - 150000) > Date.now()) ? true : false;
     var blurred = false;
+    var usdzUrl = $('#usdz-url').val();
+    var glbUrl = $('#glb-url').val();
     window.onblur = function() { blurred = true; };
     window.onfocus = function() {
         var currentURL = decodeURI(window.location.href);
@@ -12,7 +14,7 @@ $(document).ready(function() {
         var callback = searchParams.get("callback");
         callback = callback.replaceAll("'", '');
 
-        if (blurred & hasCallback && clicked && !playStoreAccessed) {
+        if (blurred & hasCallback && accessedAR && !playStoreAccessed) {
             //Redirect post load filter.
             window.location.href = callback; 
             clearInterval(checkExist);
@@ -29,18 +31,17 @@ $(document).ready(function() {
     var counter = 0;
     var checkExist = setInterval(function() {
         ++counter;
-        shadow = $('#modelViewer')[0].shadowRoot;
-        arButton = $(shadow).find('#default-ar-button');
-        if (arButton.length && counter >= 1) {
-            clicked = true;
-            arButton[0].click();
-        }
-
-        if (counter >= 300) {
+        isIOS = getIOSVersion();
+        checkCompatibility();
+        if (counter > 500) {
+            if (isIOS) {
+                $('#IOSLink').click();
+            } else {
+                $('#AndroidLink').click();
+            }
             clearInterval(checkExist);
-            checkCompatibility();
+            var accessedAR = true;
         }
-
     }, 100);
 
     function checkCompatibility() {

@@ -6,7 +6,6 @@
     <meta name="author" content="recklessMFO">
     <title>DropAr</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
     <!-- Css Main Files -->
     <%= stylesheet_link_tag 'site_styles.css' %> 
 
@@ -16,21 +15,9 @@
 
   <body style='margin: 0px'>
     <% if @filter %>
-
       <div class='ar-container' style='<% if @isAR %>transform: translate3d(0, 0, 0); z-index: 0<% end %>'>
         <model-viewer id='modelViewer' src="<%=@filter.glb_url %>" ios-src='<%= @filter.usdz_url %>' ar ar-modes="webxr scene-viewer" auto-rotate camera-controls <% if @filter.vertical == true%>ar-placement="wall"<%end%>></model-viewer>
       </div>
-
-      <% if @isAR%>
-        <div id='droparLoading'>
-          <div class="isdropAR">
-            <%= image_tag("loading-logo.gif", :style => "width: 250px; margin-top: -20%;") %>
-          </div>
-        </div>
-
-        <%= javascript_include_tag "ar-autoload" %>
-      <% end %>
-
     <% end %>
   </body>
 </html>
