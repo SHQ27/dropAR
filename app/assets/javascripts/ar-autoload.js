@@ -4,15 +4,13 @@ $(document).ready(function() {
     var playStoreAccessed = localStoragePlaystore && ((localStoragePlaystore - 150000) > Date.now()) ? true : false;
     var blurred = false;
     var accessedAR = false;
-    var usdzUrl = $('#usdz-url').val();
-    var glbUrl = $('#glb-url').val();
 
     window.onblur = function() { blurred = true; };
     window.onfocus = function() {
         if (blurred && accessedAR && !playStoreAccessed) {
             //Redirect post load filter.
-            window.location.href = callback; 
             clearInterval(checkExist);
+            window.location.href = callback; 
             return false;
         } else {
             if(blurred && playStoreAccessed) {
@@ -28,25 +26,28 @@ $(document).ready(function() {
     var checkExist = setInterval(function() {
         ++counter;
         isIOS = getIOSVersion();
-        checkCompatibility();
+        let compatible = checkCompatibility();
         if (counter > 1) {
-            if (isIOS) {
-                alert('IOS');
-                $('#IOSLink').click();
+            if (compatible) {
+                if (isIOS) {
+                    alert('IOS');
+                    $('#IOSLink').click();
+                } else {
+                    alert('ELSE')
+                    $('#AndroidLink').click();
+                }
+                clearInterval(checkExist);
+                accessedAR = true;
             } else {
-                alert('ELSE')
-                $('#AndroidLink').click();
+                handleFallback();
             }
-            clearInterval(checkExist);
-            accessedAR = true;
         }
-    }, 500);
+    }, 1000);
 
     function checkCompatibility() {
         iOSVersion = getIOSVersion();    
         if (iOSVersion && iOSVersion < 13) {
             alert('La versión de tu sistema operativo debe ser 13 o superior para acceder al contenido');
-            handleFallback();
             return false;
         }
         let iOS = iOSVersion ? true : false;
@@ -57,7 +58,6 @@ $(document).ready(function() {
                 window.open('https://play.google.com/store/apps/details?id=com.google.ar.core&hl=es_AR&gl=US', '_blank').focus();
                 return true;
             } else {
-                handleFallback();
                 return false;
             }
         }
