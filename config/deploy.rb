@@ -3,7 +3,7 @@ lock "~> 3.16.0"
 
 set :application, "dropar"
 set :repo_url, "https://github.com/SHQ27/dropAR.git"
-set :branch, "main"
+set :branch, "arAutoload"
 set :deploy_to, "/home/dropar/#{fetch :application}"
 append :linked_files, "config/master.key"
 
