@@ -1,9 +1,6 @@
 class QrService
-	def self.urlToQR(url, fileId, callbackURL=nil)
+	def self.urlToQR(url, fileId)
 		fullURL = Rails.application.routes.url_helpers.root_url.delete_suffix('/') + url
-        if not callbackURL.nil? and not callbackURL.empty?
-          fullURL += '&callback="' + callbackURL+ '"'
-        end
 		qrcode = RQRCode::QRCode.new(fullURL)
 
 		png = qrcode.as_png(

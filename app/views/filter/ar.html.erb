@@ -16,6 +16,9 @@
     <% if @filter %>
       <a id='IOSLink' rel='ar' href='<%= @filter.usdz_url%>'></a>
       <a id='AndroidLink' href="intent://arvr.google.com/scene-viewer/1.0?file=<%= @filter.glb_url%>;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;"></a>
+      <% if @filter.callback_url.present? %>
+        <a id='callback' href='<%= @filter.callback_url%>'>
+      <% end%>
       <div id='droparLoading'>
         <div class="isdropAR">
           <%= image_tag("loading-logo.gif", :style => "width: 250px; margin-top: -20%;") %>

@@ -5,16 +5,10 @@ $(document).ready(function() {
     var blurred = false;
     var usdzUrl = $('#usdz-url').val();
     var glbUrl = $('#glb-url').val();
+
     window.onblur = function() { blurred = true; };
     window.onfocus = function() {
-        var currentURL = decodeURI(window.location.href);
-        var currentParams = window.location.search;
-        var searchParams = new URLSearchParams(currentParams);
-        var hasCallback = searchParams.has('callback');
-        var callback = searchParams.get("callback");
-        callback = callback.replaceAll("'", '');
-
-        if (blurred & hasCallback && accessedAR && !playStoreAccessed) {
+        if (blurred && accessedAR && !playStoreAccessed) {
             //Redirect post load filter.
             window.location.href = callback; 
             clearInterval(checkExist);
@@ -33,7 +27,7 @@ $(document).ready(function() {
         ++counter;
         isIOS = getIOSVersion();
         checkCompatibility();
-        if (counter > 500) {
+        if (counter > 300) {
             if (isIOS) {
                 $('#IOSLink').click();
             } else {
@@ -48,7 +42,7 @@ $(document).ready(function() {
         iOSVersion = getIOSVersion();    
         if (iOSVersion && iOSVersion < 13) {
             alert('La versión de tu sistema operativo debe ser 13 o superior para acceder al contenido');
-            handleError();
+            handleFallback();
             return false;
         }
         let iOS = iOSVersion ? true : false;
@@ -59,7 +53,7 @@ $(document).ready(function() {
                 window.open('https://play.google.com/store/apps/details?id=com.google.ar.core&hl=es_AR&gl=US', '_blank').focus();
                 return true;
             } else {
-                handleError();
+                handleFallback();
                 return false;
             }
         }
@@ -75,10 +69,10 @@ $(document).ready(function() {
         return version;
     }
 
-    function handleError() {
-        if (hasCallback) {
-            clearInterval(checkExist);
-            window.location.href = callback;
+    function handleFallback() {
+        callbackLink = $('#callback')
+        if (callbackLink) {
+            callbackLink.click();
         } else {
             window.close();
         }

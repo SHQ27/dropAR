@@ -5,7 +5,7 @@ ActiveAdmin.register Filter do
   permit_params :name, :description, :product_code, :client_id, :usdz_attachment, :glb_attachment, :vertical, :callback_url
 
   sidebar "QR", only: :show do
-    image_tag QrService.urlToQR(filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true'), resource.product_code, resource.callback_url), style: 'height:auto;width:100%;'
+    image_tag QrService.urlToQR(filters_ar_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true'), resource.product_code), style: 'height:auto;width:100%;'
   end
 
   index do
@@ -28,11 +28,7 @@ ActiveAdmin.register Filter do
       row :client
       row :vertical
       row :url do
-        if not resource.callback_url.nil? and not resource.callback_url.empty?
-          Rails.application.routes.url_helpers.root_url.delete_suffix('/') + filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true') + "&callback='" + resource.callback_url + "'"
-        else 
-          Rails.application.routes.url_helpers.root_url.delete_suffix('/') + filters_path(:client => resource.client.code, :filter => resource.product_code, :ar => 'true')
-        end
+          Rails.application.routes.url_helpers.root_url.delete_suffix('/') + filters_ar_path(:client => resource.client.code, :filter => resource.product_code)
       end
       render 'partials/model-viewer', {filter: filter}
     end
