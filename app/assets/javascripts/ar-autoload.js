@@ -29,8 +29,10 @@ $(document).ready(function() {
         checkCompatibility();
         if (counter > 300) {
             if (isIOS) {
+                alert('IOS');
                 $('#IOSLink').click();
             } else {
+                alert('ELSE')
                 $('#AndroidLink').click();
             }
             clearInterval(checkExist);
