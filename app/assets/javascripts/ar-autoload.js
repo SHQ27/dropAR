@@ -3,6 +3,7 @@ $(document).ready(function() {
     var localStoragePlaystore = localStorage.getItem('playStoreAccessed');
     var playStoreAccessed = localStoragePlaystore && ((localStoragePlaystore - 150000) > Date.now()) ? true : false;
     var blurred = false;
+    var accessedAR = false;
     var usdzUrl = $('#usdz-url').val();
     var glbUrl = $('#glb-url').val();
 
@@ -36,7 +37,7 @@ $(document).ready(function() {
                 $('#AndroidLink').click();
             }
             clearInterval(checkExist);
-            var accessedAR = true;
+            accessedAR = true;
         }
     }, 100);
 
