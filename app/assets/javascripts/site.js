@@ -136,9 +136,9 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
 
 /*Autoload de Modelados*/
 window.addEventListener('load',function(){
-    var aboutModel = new DropAr('about-model', 'SITE', 'site0');
-    var product1Model = new DropAr('ar1', 'SITE', 'site1');
-    var product1Model = new DropAr('ar2', 'SITE', 'site2');
-    var product1Model = new DropAr('ar3', 'SITE', 'site3');
-    var product1Model = new DropAr('ar4', 'SITE', 'site4');
+    var aboutModel = new DropArModel('about-model', 'SITE', 'site0');
+    var product1Model = new DropArModel('ar1', 'SITE', 'site1');
+    var product1Model = new DropArModel('ar2', 'SITE', 'site2');
+    var product1Model = new DropArModel('ar3', 'SITE', 'site3');
+    var product1Model = new DropArModel('ar4', 'SITE', 'site4');
 })
