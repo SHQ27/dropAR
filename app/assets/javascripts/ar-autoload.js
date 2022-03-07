@@ -49,7 +49,7 @@ $(document).ready(function() {
         if (iOSVersion && iOSVersion < 13) {
             alert('La versión de tu sistema operativo debe ser 13 o superior para acceder al contenido');
             return false;
-        }
+        } 
         let iOS = iOSVersion ? true : false;
 
         if (!iOS) {
@@ -60,6 +60,8 @@ $(document).ready(function() {
             } else {
                 return false;
             }
+        } else {
+            return true;
         }
     }
 
