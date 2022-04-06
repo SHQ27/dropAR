@@ -60,10 +60,10 @@ $(document).ready(function() {
             let iOS = iOSVersion ? true : false;
 
             if (!iOS) {
-                alert(1);
                 var shadow = $('#modelViewer')[0].shadowRoot;
                 var arButton = $(shadow).find('#default-ar-button');
-                alert(arButton.length);
+                console.log(shadow);
+                console.log(arButton.length);
                 arButton[0].click();
 
                 if (!playStoreAccessed && confirm('Para acceder al contenido debe descargar un componente de Google Play ¿Desea proceder?')) {
