@@ -77,7 +77,7 @@ $(document).ready(function() {
     }
 
     function handleFallback() {
-        callbackLink = $('#callback')
+        callbackLink = document.getElementById('callback');
         if (callbackLink) {
             callbackLink.click();
         } else {

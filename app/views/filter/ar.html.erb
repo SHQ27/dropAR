@@ -18,6 +18,8 @@
       <a id='AndroidLink' href="intent://arvr.google.com/scene-viewer/1.0?file=<%= @filter.glb_url%>;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;"></a>
       <% if @filter.callback_url.present? %>
         <a id='callback' href='<%= @filter.callback_url%>'></a>
+      <% else %>
+        <a id='callback' href='https://dropar.ar'></a>
       <% end%>
       <div id='droparLoading'>
         <div class="isdropAR">
