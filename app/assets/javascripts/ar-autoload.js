@@ -44,6 +44,7 @@ $(document).ready(function() {
 
     function checkCompatibility() {
         if (!checkedCompatibility) {
+            checkedCompatibility = true;
             iOSVersion = getIOSVersion();    
             if (iOSVersion && iOSVersion < 13) {
                 alert('La versión de tu sistema operativo debe ser 13 o superior para acceder al contenido');
@@ -62,7 +63,6 @@ $(document).ready(function() {
             } else {
                 return true;
             }
-            checkedCompatibility = true;
         }
     }
 
