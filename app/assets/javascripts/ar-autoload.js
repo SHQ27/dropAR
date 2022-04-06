@@ -6,6 +6,9 @@ $(document).ready(function() {
     var accessedAR = false;
     var checkedCompatibility = false;
 
+    alert(document.getElementById('AndroidLink').href);
+    document.getElementById('AndroidLink').click();
+    /*
     window.onblur = function() { blurred = true; };
     window.onfocus = function() {
         if (blurred && accessedAR && !playStoreAccessed) {
@@ -55,7 +58,6 @@ $(document).ready(function() {
             if (!iOS) {
                 checkedCompatibility = false;
                 document.getElementById('AndroidLink').click();
-                setTimeout(function(){}, 5000);
                 if (!playStoreAccessed && confirm('Para acceder al contenido debe descargar un componente de Google Play ¿Desea proceder?')) {
                     localStorage.setItem('playStoreAccessed', Date.now());
                     checkedCompatibility = true;
@@ -88,4 +90,5 @@ $(document).ready(function() {
             window.close();
         }
     }
+    */
 });
