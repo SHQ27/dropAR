@@ -16,7 +16,7 @@ $(document).ready(function() {
         } else {
             if(blurred && playStoreAccessed) {
                 //Reload post playstore
-                window.location.reload()
+                document.getElementById('AndroidLink').click();
             } 
         }
     };
@@ -53,8 +53,11 @@ $(document).ready(function() {
             let iOS = iOSVersion ? true : false;
 
             if (!iOS) {
+                checkedCompatibility = false;
+                document.getElementById('AndroidLink').click();
                 if (!playStoreAccessed && confirm('Para acceder al contenido debe descargar un componente de Google Play ¿Desea proceder?')) {
                     localStorage.setItem('playStoreAccessed', Date.now());
+                    checkedCompatibility = true;
                     window.open('https://play.google.com/store/apps/details?id=com.google.ar.core&hl=es_AR&gl=US', '_blank').focus();
                     return true;
                 } else {
