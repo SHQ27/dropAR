@@ -23,7 +23,6 @@ $(document).ready(function() {
 
     //Autoload
     var counter = 0;
-    alert
     var checkExist = setInterval(function() {
         ++counter;
         isIOS = getIOSVersion();
