@@ -16,9 +16,6 @@
   <body style='margin: 0px'>
     <% if @filter %>
       <a id='IOSLink' rel='ar' href='<%= @filter.usdz_url%>'><img /></a>
-      <div class='ar-container' style='<% if @isAR %>transform: translate3d(0, 0, 0); z-index: 0<% end %>'>
-        <model-viewer id='modelViewer' src="<%=@filter.glb_url %>" ar ar-modes="webxr scene-viewer" auto-rotate camera-controls <% if @filter.vertical == true%>ar-placement="wall"<%end%>></model-viewer>
-      </div>
       <% if @filter.callback_url.present? %>
         <a id='callback' href='<%= @filter.callback_url%>'></a>
       <% else %>
@@ -26,6 +23,7 @@
       <% end%>
       <div id='droparLoading'>
         <div class="isdropAR">
+          <model-viewer id='modelViewer' src="<%=@filter.glb_url %>" ar ar-modes="webxr scene-viewer" auto-rotate camera-controls <% if @filter.vertical == true%>ar-placement="wall"<%end%>></model-viewer>
           <%= image_tag("loading-logo.gif", :style => "width: 250px; margin-top: -20%;") %>
         </div>
       </div>

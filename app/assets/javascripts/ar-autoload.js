@@ -31,11 +31,10 @@ $(document).ready(function() {
         if (counter > 1) {
             if (compatible) {
                 if (isIOS) {
+                    clearInterval(checkExist);
                     document.getElementById('IOSLink').click();
                 } else {
-                    shadow = $('#modelViewer')[0].shadowRoot;
-                    arButton = $(shadow).find('#default-ar-button');
-                    if (arButton.length) {
+                    if (arButton.length and counter == 1) {
                         arButton[0].click();
                     }
                     if (arButton.length and counter >= 5) {
@@ -43,7 +42,6 @@ $(document).ready(function() {
                         arButton[0].click();
                     }
                 }
-                clearInterval(checkExist);
                 accessedAR = true;
             } else {
                 handleFallback();
@@ -62,8 +60,11 @@ $(document).ready(function() {
             let iOS = iOSVersion ? true : false;
 
             if (!iOS) {
-                checkedCompatibility = false;
-                document.getElementById('AndroidLink').click();
+                var shadow = $('#modelViewer')[0].shadowRoot;
+                var arButton = $(shadow).find('#default-ar-button');
+                alert(arButton.length);
+                arButton[0].click();
+
                 if (!playStoreAccessed && confirm('Para acceder al contenido debe descargar un componente de Google Play ¿Desea proceder?')) {
                     localStorage.setItem('playStoreAccessed', Date.now());
                     checkedCompatibility = true;
