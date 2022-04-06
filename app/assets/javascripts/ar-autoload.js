@@ -6,7 +6,6 @@ $(document).ready(function() {
     var accessedAR = false;
     var checkedCompatibility = false;
 
-    alert(document.getElementById('AndroidLink').href);
     document.getElementById('AndroidLink').click();
     /*
     window.onblur = function() { blurred = true; };

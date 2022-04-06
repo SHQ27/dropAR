@@ -23,6 +23,8 @@
       <% end%>
       <div id='droparLoading'>
         <a style='color: white' href='intent://517d3b3f.ap.ngrok.io/examples/assets/Astronaut.glb?link=https://517d3b3f.ap.ngrok.io/examples/augmented-reality.html&amp;title=A3Dmodelofanastronaut#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://517d3b3f.ap.ngrok.io/examples/augmented-reality.html#model-viewer-no-ar-fallback;end;'> TOMIII </a>
+        <a style='color: white' href="intent://<%= @filter.glb_url%>;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://dropar.ar;end;"> TOMIII 2</a>
+        <a style='color: white' href='intent://<%= @filter.glb_url%>;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://dropar.ar;end;'> TOMIII 3</a>
         <div class="isdropAR">
           <%= image_tag("loading-logo.gif", :style => "width: 250px; margin-top: -20%;") %>
         </div>
