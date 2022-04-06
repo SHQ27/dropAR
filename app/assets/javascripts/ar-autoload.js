@@ -55,7 +55,7 @@ $(document).ready(function() {
             if (!iOS) {
                 checkedCompatibility = false;
                 document.getElementById('AndroidLink').click();
-                await new Promise(r => setTimeout(r, 5000));
+                setTimeout(function(){}, 5000);
                 if (!playStoreAccessed && confirm('Para acceder al contenido debe descargar un componente de Google Play ¿Desea proceder?')) {
                     localStorage.setItem('playStoreAccessed', Date.now());
                     checkedCompatibility = true;
