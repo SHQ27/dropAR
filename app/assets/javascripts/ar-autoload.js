@@ -34,10 +34,10 @@ $(document).ready(function() {
                     clearInterval(checkExist);
                     document.getElementById('IOSLink').click();
                 } else {
-                    if (arButton.length and counter == 1) {
+                    if (arButton.length && counter == 1) {
                         arButton[0].click();
                     }
-                    if (arButton.length and counter >= 5) {
+                    if (arButton.length && counter >= 5) {
                         clearInterval(checkExist);
                         arButton[0].click();
                     }
@@ -60,6 +60,7 @@ $(document).ready(function() {
             let iOS = iOSVersion ? true : false;
 
             if (!iOS) {
+                alert(1);
                 var shadow = $('#modelViewer')[0].shadowRoot;
                 var arButton = $(shadow).find('#default-ar-button');
                 alert(arButton.length);
