@@ -36,7 +36,6 @@ $(document).ready(function() {
                     shadow = $('#modelViewer')[0].shadowRoot;
                     arButton = $(shadow).find('#default-ar-button');
                     if (arButton.length) {
-                        clearInterval(checkExist);
                         arButton[0].click();
                     }
                     if (arButton.length and counter >= 5) {
