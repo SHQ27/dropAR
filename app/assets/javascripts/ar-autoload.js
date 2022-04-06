@@ -6,8 +6,7 @@ $(document).ready(function() {
     var accessedAR = false;
     var checkedCompatibility = false;
 
-    document.getElementById('AndroidLink').click();
-    /*
+
     window.onblur = function() { blurred = true; };
     window.onfocus = function() {
         if (blurred && accessedAR && !playStoreAccessed) {
@@ -34,7 +33,16 @@ $(document).ready(function() {
                 if (isIOS) {
                     document.getElementById('IOSLink').click();
                 } else {
-                    document.getElementById('AndroidLink').click();
+                    shadow = $('#modelViewer')[0].shadowRoot;
+                    arButton = $(shadow).find('#default-ar-button');
+                    if (arButton.length) {
+                        clearInterval(checkExist);
+                        arButton[0].click();
+                    }
+                    if (arButton.length and counter >= 5) {
+                        clearInterval(checkExist);
+                        arButton[0].click();
+                    }
                 }
                 clearInterval(checkExist);
                 accessedAR = true;
@@ -89,5 +97,4 @@ $(document).ready(function() {
             window.close();
         }
     }
-    */
 });

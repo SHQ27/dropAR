@@ -15,16 +15,15 @@
   <body style='margin: 0px'>
     <% if @filter %>
       <a id='IOSLink' rel='ar' href='<%= @filter.usdz_url%>'><img /></a>
-      <a id='AndroidLink' href="intent://<%= @filter.glb_url%>;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://dropar.ar;end;"></a>
+      <div class='ar-container' style='<% if @isAR %>transform: translate3d(0, 0, 0); z-index: 0<% end %>'>
+        <model-viewer id='modelViewer' src="<%=@filter.glb_url %>" ar ar-modes="webxr scene-viewer" auto-rotate camera-controls <% if @filter.vertical == true%>ar-placement="wall"<%end%>></model-viewer>
+      </div>
       <% if @filter.callback_url.present? %>
         <a id='callback' href='<%= @filter.callback_url%>'></a>
       <% else %>
         <a id='callback' href='https://dropar.ar'></a>
       <% end%>
       <div id='droparLoading'>
-        <a style='color: white' href='intent://517d3b3f.ap.ngrok.io/examples/assets/Astronaut.glb?link=https://517d3b3f.ap.ngrok.io/examples/augmented-reality.html&amp;title=A3Dmodelofanastronaut#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://517d3b3f.ap.ngrok.io/examples/augmented-reality.html#model-viewer-no-ar-fallback;end;'> TOMIII </a>
-        <a style='color: white' href="intent://<%= @filter.glb_url%>;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://dropar.ar;end;"> TOMIII 2</a>
-        <a style='color: white' href='intent://<%= @filter.glb_url%>;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://dropar.ar;end;'> TOMIII 3</a>
         <div class="isdropAR">
           <%= image_tag("loading-logo.gif", :style => "width: 250px; margin-top: -20%;") %>
         </div>
