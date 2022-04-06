@@ -4,6 +4,7 @@ $(document).ready(function() {
     var playStoreAccessed = localStoragePlaystore && ((localStoragePlaystore - 150000) > Date.now()) ? true : false;
     var blurred = false;
     var accessedAR = false;
+    var checkedCompatibility = false;
 
     window.onblur = function() { blurred = true; };
     window.onfocus = function() {
@@ -30,11 +31,9 @@ $(document).ready(function() {
         if (counter > 1) {
             if (compatible) {
                 if (isIOS) {
-                    alert('IOS');
-                    $('#IOSLink').click();
+                    document.getElementById('IOSLink').click();
                 } else {
-                    alert('ELSE')
-                    $('#AndroidLink').click();
+                    document.getElementById('AndroidLink').click();
                 }
                 clearInterval(checkExist);
                 accessedAR = true;
@@ -45,23 +44,26 @@ $(document).ready(function() {
     }, 1000);
 
     function checkCompatibility() {
-        iOSVersion = getIOSVersion();    
-        if (iOSVersion && iOSVersion < 13) {
-            alert('La versión de tu sistema operativo debe ser 13 o superior para acceder al contenido');
-            return false;
-        } 
-        let iOS = iOSVersion ? true : false;
-
-        if (!iOS) {
-            if (!playStoreAccessed && confirm('Para acceder al contenido debe descargar un componente de Google Play ¿Desea proceder?')) {
-                localStorage.setItem('playStoreAccessed', Date.now());
-                window.open('https://play.google.com/store/apps/details?id=com.google.ar.core&hl=es_AR&gl=US', '_blank').focus();
-                return true;
-            } else {
+        if (!checkedCompatibility) {
+            iOSVersion = getIOSVersion();    
+            if (iOSVersion && iOSVersion < 13) {
+                alert('La versión de tu sistema operativo debe ser 13 o superior para acceder al contenido');
                 return false;
+            } 
+            let iOS = iOSVersion ? true : false;
+
+            if (!iOS) {
+                if (!playStoreAccessed && confirm('Para acceder al contenido debe descargar un componente de Google Play ¿Desea proceder?')) {
+                    localStorage.setItem('playStoreAccessed', Date.now());
+                    window.open('https://play.google.com/store/apps/details?id=com.google.ar.core&hl=es_AR&gl=US', '_blank').focus();
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
             }
-        } else {
-            return true;
+            checkedCompatibility = true;
         }
     }
 
