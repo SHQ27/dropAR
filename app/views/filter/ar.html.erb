@@ -21,9 +21,9 @@
       <% else %>
         <a id='callback' href='https://dropar.ar'></a>
       <% end%>
+      <model-viewer id='modelViewer' src="<%=@filter.glb_url %>" ar ar-modes="webxr scene-viewer" auto-rotate camera-controls <% if @filter.vertical == true%>ar-placement="wall"<%end%>></model-viewer>
       <div id='droparLoading'>
         <div class="isdropAR">
-          <model-viewer id='modelViewer' src="<%=@filter.glb_url %>" ar ar-modes="webxr scene-viewer" auto-rotate camera-controls <% if @filter.vertical == true%>ar-placement="wall"<%end%>></model-viewer>
           <%= image_tag("loading-logo.gif", :style => "width: 250px; margin-top: -20%;") %>
         </div>
       </div>
