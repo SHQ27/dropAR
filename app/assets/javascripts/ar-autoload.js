@@ -56,8 +56,8 @@ $(document).ready(function() {
                 for (ticks = 0; ticks < 10; ticks++) {
                     var shadow = $('#modelViewer')[0].shadowRoot;
                     var arButton = $(shadow).find('#default-ar-button');
-                    console.log(shadow);
                     console.log(arButton.length);
+                    console.log(arButton[0]);
                     arButton[0].click();
                     sleep(1000);
                 }
