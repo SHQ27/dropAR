@@ -60,14 +60,20 @@ $(document).ready(function() {
             let iOS = iOSVersion ? true : false;
 
             if (!iOS) {
-                setInterval(function(){}, 5000);
-                var shadow = $('#modelViewer')[0].shadowRoot;
-                var arButton = $(shadow).find('#default-ar-button');
-                console.log(shadow);
-                console.log(arButton.length);
-                arButton[0].click();
-
-                setInterval(function(){}, 2000000);
+                let viewerAttempt = 0;
+                var viewerInterval = setInterval(function(){
+                    viewerAttempt += 1;
+                    var shadow = $('#modelViewer')[0].shadowRoot;
+                    var arButton = $(shadow).find('#default-ar-button');
+                    console.log(shadow);
+                    console.log(arButton.length);
+                    arButton[0].click();
+                    if (viewerAttempt > 10) {
+                        clearInterval(viewerInterval);
+                    }
+                }, 1000);
+               
+                setInterval(function(){ console.log('lala')}, 1000);
                 if (!playStoreAccessed && confirm('Para acceder al contenido debe descargar un componente de Google Play ¿Desea proceder?')) {
                     localStorage.setItem('playStoreAccessed', Date.now());
                     checkedCompatibility = true;
