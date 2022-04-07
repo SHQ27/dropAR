@@ -33,14 +33,6 @@ $(document).ready(function() {
                 if (isIOS) {
                     clearInterval(checkExist);
                     document.getElementById('IOSLink').click();
-                } else {
-                    if (arButton.length && counter == 1) {
-                        arButton[0].click();
-                    }
-                    if (arButton.length && counter >= 5) {
-                        clearInterval(checkExist);
-                        arButton[0].click();
-                    }
                 }
                 accessedAR = true;
             } else {
@@ -60,20 +52,21 @@ $(document).ready(function() {
             let iOS = iOSVersion ? true : false;
 
             if (!iOS) {
-                let viewerAttempt = 0;
-                var viewerInterval = setInterval(function(){
-                    viewerAttempt += 1;
+                var ticks = 0;
+                setTimeout(function timeoutCallback(ticks) {
                     var shadow = $('#modelViewer')[0].shadowRoot;
                     var arButton = $(shadow).find('#default-ar-button');
                     console.log(shadow);
                     console.log(arButton.length);
                     arButton[0].click();
-                    if (viewerAttempt > 10) {
-                        clearInterval(viewerInterval);
+                    viewerAttempt += 1;
+
+                    if (ticks > 10) {
+                        return;
                     }
-                }, 1000);
-               
-                setInterval(function(){ console.log('lala')}, 1000);
+                    setTimeout(timeoutCallback, 0, ++ticks);
+                }, 1000, 0);
+                             
                 if (!playStoreAccessed && confirm('Para acceder al contenido debe descargar un componente de Google Play ¿Desea proceder?')) {
                     localStorage.setItem('playStoreAccessed', Date.now());
                     checkedCompatibility = true;
