@@ -53,27 +53,23 @@ $(document).ready(function() {
 
             if (!iOS) {
                 var ticks = 0;
-                setTimeout(function timeoutCallback(ticks) {
+                for (ticks = 0; ticks < 10; ticks++) {
                     var shadow = $('#modelViewer')[0].shadowRoot;
                     var arButton = $(shadow).find('#default-ar-button');
                     console.log(shadow);
                     console.log(arButton.length);
                     arButton[0].click();
-                    viewerAttempt += 1;
+                    sleep(1000);
+                }
 
-                    if (ticks > 10) {
-                        if (!playStoreAccessed && confirm('Para acceder al contenido debe descargar un componente de Google Play ¿Desea proceder?')) {
-                            localStorage.setItem('playStoreAccessed', Date.now());
-                            checkedCompatibility = true;
-                            window.open('https://play.google.com/store/apps/details?id=com.google.ar.core&hl=es_AR&gl=US', '_blank').focus();
-                            return true;
-                        } else {
-                            return false;
-                        }
-                        return;
-                    }
-                    setTimeout(timeoutCallback, 0, ++ticks);
-                }, 1000, 0);
+                if (!playStoreAccessed && confirm('Para acceder al contenido debe descargar un componente de Google Play ¿Desea proceder?')) {
+                    localStorage.setItem('playStoreAccessed', Date.now());
+                    checkedCompatibility = true;
+                    window.open('https://play.google.com/store/apps/details?id=com.google.ar.core&hl=es_AR&gl=US', '_blank').focus();
+                    return true;
+                } else {
+                    return false;
+                }
             } else {
                 return true;
             }
@@ -96,6 +92,15 @@ $(document).ready(function() {
             callbackLink.click();
         } else {
             window.close();
+        }
+    }
+
+    function sleep(milliseconds) {
+        var start = new Date().getTime();
+        for (var i = 0; i < 1e7; i++) {
+            if ((new Date().getTime() - start) > milliseconds) {
+                break;
+            }
         }
     }
 });
