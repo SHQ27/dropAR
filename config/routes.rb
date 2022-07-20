@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root :controller => 'home', :action => :index 
 
-  get '/index2', to: "home#index2"
+  get '/en', to: "home#index_en"
+  get '/es', to: "home#index"
   get '/filters/model', to: "filter#model"
   get '/filters/ar', to: "filter#ar"
   get '/tester', to: "filter#tester"

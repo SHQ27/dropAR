@@ -1,0 +1,133 @@
+<% flash.each do |type, msg| %>
+  <div id='flashMsg' class='alert alert-success'>
+  <span><%= msg %></span>
+  </div>
+<% end %>
+
+<nav class="nav">
+  <a href="#home" class="logo"><%= image_tag 'site/LogoSmall.png'%></a>
+  <ul id="menu" class="nav-menu">
+    <li data-menuanchor="inicio">
+      <a href="#home">Home</a> 
+    </li>
+    <li data-menuanchor="about" >
+      <a href="#about">About Dropar</a> 
+    </li>
+
+    <li data-menuanchor="contactos" >
+      <a href="#contacto">Contact</a> 
+    </li>
+    <li data-menuanchor="footer">
+      <a href="#"></a> 
+    </li>
+
+    <li>
+      <a href="/es">ES</a>
+      <h4>/</h4>
+      <a href="/en">EN</a>
+    </li>
+  </ul>
+  <div id="hamburger" class="bars__menu nav-button">
+    <span class="line1__bars-menu"></span>
+    <span class="line2__bars-menu"></span>
+    <span class="line3__bars-menu"></span>
+  </div>
+</nav>
+
+<main>
+  <header id="home" class="section header">
+    <video muted autoplay loop class="home-video"><source src="<%= image_path("site/Homevideo.mp4") %>" type="video/mp4"></video> 
+    <video muted autoplay loop class="home-video-vertical"><source src="<%= image_path("site/HomevideoVERTICAL.mp4") %>" type="video/mp4"></video> 
+  </header>
+
+  <section id="about" class="section about" >
+    <div>
+      <p class="about-titulo">Your ideas in the  <span class="bold pink ">digital world</span></p>
+      <img src="<%= image_path('site/star.svg')%>" alt="" class="estrella">
+      <p class="about-parrafo">We are a team of creatives and digital artists specialized in high impact campaign development. We provide innovative, interactive, immersive experiences to boost our clients' brands.</p>
+    </div>
+  </section>
+
+  <section class="slide-cubos">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          3D Modeling and Animation
+        </div>
+        <div class="carousel-item">
+          3D Rendering
+        </div>
+        <div class="carousel-item">
+          Virtual Reality
+        </div>
+        <div class="carousel-item">
+          Storytelling
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <section id="contacto" class="section contacto">			
+    <div class="formulario-texto">
+      <h1> Tell us everything about your project*</h1>
+      <div class="linea"></div>
+      <h4 class="simple">*Well, at least some of it. We'll get in touch with you providing a taylored proposal.</h4>
+    </div>
+    <form method='post' action='/send_mail' id='mailSend'>
+      <div class="formulario">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"></label>
+          <input name='name' type="text" class="form-control" id="name" placeholder="Name" required='required'>
+          <input name='email' type="text" class="form-control" id="email" placeholder="E-mail" required='required'>
+          <input name='phone' type="tel" class="form-control" id="phone" placeholder="Phone" required='required'>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control form-mensaje" id="exampleFormControlTextarea1" required='required' placeholder="Your message..." rows="3"></textarea>
+        </div>
+        <input type="submit" class="btn btn-light btn-contacto" value='Enviar consulta'>
+      </div>            
+    </form>
+  </section>
+
+  <footer class="section footer">
+    <div class="linea-foot"></div>
+    <div class="info-foot">
+      <div class="datos">
+        <ul class="lista">
+          <li><img src="<%= image_path("site/Logoblue.png") %>" alt="" class="logoblue"></li>
+          <li><img src="<%= image_path("site/VisualSmall.png") %>" alt="" class="logovisual"></li>
+          <li><h4 class="simple">Copyright © <%= DateTime.now.year%> dropar</h4></li>
+          <li><h4 class="simple">All rights reserved</h4></li>
+        </ul>
+      </div>
+      <div class="contacto-foot">
+        <ul class="lista simple">
+          <h5 class="simple">Contact us</h5>
+          <li> <i class="fa-solid fa-phone"></i>  +54 9 11 6001-2636</li>
+          <li> <i class="fa-solid fa-phone"></i>  +54 9 11 4969-4247</li>
+          <li><i class="fa-solid fa-envelope"></i>  dropar.ar@gmail.com </li>
+
+        </ul>
+      </div>
+      <div class="redes">
+        <h5 class="simple">Follow us</h5>
+        <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.instagram.com/dropar.studio/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-vimeo"></i></a>
+      </div>				
+    </div>
+    <a href="#home" class="flecha-up"><img src="<%= image_path("site/FlechaS.png")%>" alt=""></i></a>		
+  </footer>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<%= javascript_include_tag "site.js" %>

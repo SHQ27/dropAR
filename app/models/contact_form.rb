@@ -1,6 +1,7 @@
 class ContactForm < MailForm::Base
   attribute :name, validate: true
   attribute :email, validate: /\A[^@\s]+@[^@\s]+\z/i
+  attribute :phone
   attribute :message
 
   def headers

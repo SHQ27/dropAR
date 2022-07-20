@@ -3,11 +3,39 @@
   <head>
     <title>DropAr</title>
     <link rel="shortcut icon" href="/assets/site-icon.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/82b1278b05.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <%= stylesheet_link_tag 'site.css' %>
+    <style>
+      .about{
+        background-image: url(<%= image_path('site/fondoblue.jpg') %>);
+      }
+      .slide-cubos{
+        background-image: url(<%= image_path('site/fondoslide.jpg') %>);
+      }
+      .carousel div{
+        background-image: url(<%= image_path('site/Cubos-unscreen.gif') %>);
+      }
+      .footer{
+        background-image: url(<%= image_path('site/fondoblue2.jpg') %>);
+      }
+
+      @media all and (max-width: 755px){
+        .about{
+          background-image: url(image_path('site/fondoblueVetical.jpg'));
+        }
+        .slide-cubos{
+          background-image: url(image_path('site/fondoslideVertical2.jpg'));
+        }
+      }
+    </style>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
