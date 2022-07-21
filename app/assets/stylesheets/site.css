@@ -206,13 +206,13 @@ form {
 .contacto{
     background: rgb(255,108,139);
     background-image: linear-gradient(246deg,
-  hsl(209deg 73% 64%) 0%,
-  hsl(216deg 88% 65%) 17%,
-  hsl(229deg 96% 71%) 33%,
-  hsl(308deg 60% 65%) 50%,
-  hsl(347deg 100% 71%) 67%,
-  hsl(353deg 80% 62%) 83%,
-  hsl(358deg 65% 53%) 100%);
+    hsl(209deg 73% 64%) 0%,
+    hsl(216deg 88% 65%) 17%,
+    hsl(229deg 96% 71%) 33%,
+    hsl(308deg 60% 65%) 50%,
+    hsl(347deg 100% 71%) 67%,
+    hsl(353deg 80% 62%) 83%,
+    hsl(358deg 65% 53%) 100%);
     background-position: center;
     background-size: cover;
     height: 700px;   
@@ -619,8 +619,7 @@ form {
 
       
         .contacto{
-            background-image: linear-gradient(
-            205deg,
+            background-image: linear-gradient(205deg,
             hsl(209deg 73% 64%) 0%,             
             hsl(215deg 79% 66%) 10%,
             hsl(221deg 86% 68%) 20%,            
