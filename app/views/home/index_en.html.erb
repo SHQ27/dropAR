@@ -8,14 +8,14 @@
   <a href="#home" class="logo"><%= image_tag 'site/LogoSmall.png'%></a>
   <ul id="menu" class="nav-menu">
     <li data-menuanchor="inicio">
-      <a href="#home">Home</a> 
+      <a id='btn-menu1' href="#home">Home</a> 
     </li>
     <li data-menuanchor="about" >
-      <a href="#about">About Dropar</a> 
+      <a id='btn-menu2' href="#about">About Dropar</a> 
     </li>
 
     <li data-menuanchor="contactos" >
-      <a href="#contacto">Contact</a> 
+      <a id='btn-menu3' href="#contacto">Contact</a> 
     </li>
     <li data-menuanchor="footer">
       <a href="#"></a> 
@@ -35,51 +35,33 @@
 </nav>
 
 <main>
-  <header id="home" class="section header">
+  <header id="Home" class="section header">
     <video muted autoplay loop class="home-video"><source src="<%= image_path("site/Homevideo.mp4") %>" type="video/mp4"></video> 
     <video muted autoplay loop class="home-video-vertical"><source src="<%= image_path("site/HomevideoVERTICAL.mp4") %>" type="video/mp4"></video> 
   </header>
 
-  <section id="about" class="section about" >
+  <section id="About" class="section about" >
     <div>
-      <p class="about-titulo">Your ideas in the  <span class="bold pink ">digital world</span></p>
+      <p class="about-titulo">Your ideas in the<br><span class="bold pink ">digital world</span></p>
       <img src="<%= image_path('site/star.svg')%>" alt="" class="estrella">
       <p class="about-parrafo">We are a team of creatives and digital artists specialized in high impact campaign development. We provide innovative, interactive, immersive experiences to boost our clients' brands.</p>
     </div>
   </section>
 
   <section class="slide-cubos">
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          3D Modeling and Animation
-        </div>
-        <div class="carousel-item">
-          3D Rendering
-        </div>
-        <div class="carousel-item">
-          Virtual Reality
-        </div>
-        <div class="carousel-item">
-          Storytelling
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+    <div class="cubos">
+      <h1 class="text-animated-one">3D Modeling and Animation</h1>
+      <h1 class="text-animated-two">3D Rendering</h1>
+      <h1 class="text-animated-three">Virtual Reality</h1>
+      <h1 class="text-animated-four">Storytelling</h1>
     </div>
   </section>
 
-  <section id="contacto" class="section contacto">			
+  <section id="Contacto" class="section contacto">			
     <div class="formulario-texto">
-      <h1> Tell us everything about your project*</h1>
+      <h1> Tell us everything about your project</h1>
       <div class="linea"></div>
-      <h4 class="simple">*Well, at least some of it. We'll get in touch with you providing a taylored proposal.</h4>
+      <h4 class="simple">Our creative team will come up with a taylored proposal for your business</h4>
     </div>
     <form method='post' action='/send_mail' id='mailSend'>
       <div class="formulario">
@@ -123,7 +105,7 @@
         <a href="https://www.instagram.com/dropar.studio/"><i class="fa-brands fa-instagram"></i></a>
       </div>				
     </div>
-    <a href="#home" class="flecha-up"><img src="<%= image_path("site/FlechaS.png")%>" alt=""></i></a>		
+    <a href="#Home" class="flecha-up"><img src="<%= image_path("site/FlechaS.png")%>" alt=""></i></a>		
   </footer>
 
 </main>

@@ -1,5 +1,9 @@
 document.querySelector(".bars__menu").addEventListener("click", animateBars);
 
+document.querySelector("#btn-menu1").addEventListener("click", animateBars);
+document.querySelector("#btn-menu2").addEventListener("click", animateBars);
+document.querySelector("#btn-menu3").addEventListener("click", animateBars);
+
 var line1__bars = document.querySelector(".line1__bars-menu");
 var line2__bars = document.querySelector(".line2__bars-menu");
 var line3__bars = document.querySelector(".line3__bars-menu");
@@ -15,6 +19,34 @@ function animateBars(){
 
 $(document).ready(function() {
     $("#hamburger").click(function() {
+        if($('#menu').hasClass('visible')) {
+            $("#menu").removeClass("visible");
+        } else {
+            $("#menu").addClass("visible");
+        }
+    });
+});
+
+$(document).ready(function() {
+    $("#btn-menu1").click(function() {
+        if($('#menu').hasClass('visible')) {
+            $("#menu").removeClass("visible");
+        } else {
+            $("#menu").addClass("visible");
+        }
+    });
+});
+$(document).ready(function() {
+    $("#btn-menu2").click(function() {
+        if($('#menu').hasClass('visible')) {
+            $("#menu").removeClass("visible");
+        } else {
+            $("#menu").addClass("visible");
+        }
+    });
+});
+$(document).ready(function() {
+    $("#btn-menu3").click(function() {
         if($('#menu').hasClass('visible')) {
             $("#menu").removeClass("visible");
         } else {
