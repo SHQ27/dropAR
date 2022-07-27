@@ -664,11 +664,11 @@ form {
 
 @media all and (max-width: 590px){
     .about-titulo{
-        font-size: 35px; /*cambio*/
+        padding-left: 10%;
+        font-size: 35px;
     }
 
     .about-titulo::before{
-        padding-left: 10%;
     display: none;}
 
     .about-parrafo{
