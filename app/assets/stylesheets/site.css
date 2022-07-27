@@ -185,7 +185,6 @@ form {
     background-size: cover;
     color: #fff;
     font-weight: lighter;
-    padding-top: 50px;
     text-align: center;
 }
 
@@ -669,12 +668,14 @@ form {
     }
 
     .about-titulo::before{
+        padding-left: 10%;
     display: none;}
 
     .about-parrafo{
         width: 95%;
         padding-top: 30px;
-    padding-left: 10%;}
+    padding-left: 10%;
+}
 
     .cubos{ 
         background-size: 60%;
